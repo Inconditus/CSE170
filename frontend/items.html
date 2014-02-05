@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Group buy</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+	<style>
+	body {
+		background: #f0f2f5;
+		font-family: 'Open Sans', sans-serif;
+	}
+	.stickyheader {
+		position:fixed;
+		width: 100%;
+	}
+	.logo-background {
+		position: absolute;
+		height: 60px;
+		width: 100%;
+		background-image: url(staticheader.jpg);
+		z-index: 5;
+		opacity: 0.9;
+	}
+	.logo {
+		position: absolute;
+		text-align: center;
+		width: 100%;
+		z-index: 10;
+		color:white;
+		font-family: 'Lobster';
+		font-size: 23px;
+		padding-top:10px;
+		text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+	}
+	.categories { 
+		position: fixed;
+		z-index: 10;
+		margin-top: 60px;
+		text-align: center;
+		padding:10px;
+		display:inline-block;
+		background: #fcfcfd;
+		width: 100%;
+	}
+	.categories li {
+		display: inline-block;
+		padding: 0 30px;
+		list-style-type: none;
+	}
+	.categories li.active {
+		border: 1px solid rgba(0,0,0,0.1);
+
+	}
+	.categories li a {
+		color: #a6a6a6;
+	}
+	.categories li.active a {
+
+		color: #737373;
+	}
+	.content {
+		position: static;
+		padding-top: 100px;
+	}
+	.item {
+		position: relative;
+		background: url(http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg);
+		height: 200px;
+		margin: 10px 0;
+	}
+	.itembar {
+		position: absolute;
+		bottom: 0px; /*TODO edit this size*/
+		background: rgba(68, 127, 203, 0.8);
+		width: 100%;
+		text-align: center;
+		padding: 10px;
+	}
+	.btn-itembar {
+		display: inline-block;
+		color: white;
+		padding: 5px;
+	}
+	.oldprice, .price {
+		float: left;
+	}
+	.oldprice {
+		text-decoration: line-through;
+		font-weight: 300;
+		font-size: 15px;
+	}
+	.price {
+		font-weight: 400;
+		border-radius: 4px;
+		font-size: 15px;
+		border: 1px solid white;
+	}
+	.btn-buy {
+		float: right;
+		font-weight: 400;
+	}
+	</style>
+</head>
+<body>
+	<div class="stickyheader">
+		<div class="logo-background"></div>
+		<div class="logo">GroupBuy</div>
+		<ul class="categories">
+			<li class="active"><a href="#">Nearby</a></li>
+			<li><a href="#about">Add</a></li>
+			<li><a href="#contact">Profiles</a></li>
+		</ul>
+	</div>
+	<div class="content">
+		<div class="item">
+			<div class="itembar">
+				<div class="btn-itembar price">$90</div>
+				<div class="btn-itembar oldprice">$999</div>
+
+				<div class="btn-itembar btn-buy">Buy Now</div>
+			</div>
+		</div>
+		<div class="item">
+			<div class="itembar">
+				<div class="btn-itembar price">$90</div>
+				<div class="btn-itembar oldprice">$999</div>
+
+				<div class="btn-itembar btn-buy">Buy Now</div>
+			</div>
+		</div>
+		<div class="item">
+			<div class="itembar">
+				<div class="btn-itembar price">$90</div>
+				<div class="btn-itembar oldprice">$999</div>
+
+				<div class="btn-itembar btn-buy">Buy Now</div>
+			</div>
+		</div>
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
+	</body>
+	</html>
