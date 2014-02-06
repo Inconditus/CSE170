@@ -114,9 +114,9 @@
 						<!-- <span class="glyphicon glyphicon-lock"></span> -->
 					</form>
 					<br>
-					<a href="#login" class="btn btn-register btn-lg btn-outline">Sign Up</a>
+					<a href="/login" class="btn btn-register btn-lg btn-outline">Sign Up</a>
 					<br>
-					<a href="#login" class="btn btn-login btn-lg btn-outline">Sign In</a>
+					<a href="/login" class="btn btn-login btn-lg btn-outline">Sign In</a>
 				</div>
 			</div>
 		</div>
@@ -125,7 +125,7 @@
 	<script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
 	<script>
 	$(".btn-register").click(function(evt) {
-		evt.preventDefault;
+		// link to next page
 		console.log("registration button clicked");
 		//remove the sign in button
 		$(".btn-login").animate({
@@ -141,7 +141,7 @@
 			backgroundColor: 'white',
 			color: '#3e4e67'
 		});
-
+		evt.preventDefault;
 	});
 	$(".btn-login").click(function(evt) {
 		evt.preventDefault;
@@ -163,6 +163,8 @@
 			backgroundColor: 'white',
 			color: '#3e4e67'
 		});
+		evt.preventDefault;
+
 	});
 	</script>
 </body>
