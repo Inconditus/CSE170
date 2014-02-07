@@ -63,46 +63,47 @@
 		color: #737373;
 	}
 	.content {
-		position: static;
-		padding-top: 100px;
+		padding-top: 200px;
 	}
-	.item {
-		position: relative;
-		background: url(http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg);
-		height: 200px;
-		margin: 10px 0;
+
+	.input-group 
+	{
+		margin-left: auto;
+	    margin-right: auto;
+	    width: 250px;
+	    padding-top: 10px;
 	}
-	.itembar {
-		position: absolute;
-		bottom: 0px; /*TODO edit this size*/
-		background: rgba(68, 127, 203, 0.8);
-		width: 100%;
+
+	.form-control {
+		/*border-top-left-radius: 10px !important;
+		border-top-right-radius: 10px !important;
+		border-bottom-right-radius: 10px !important;
+		border-bottom-left-radius: 10px !important;*/
+		border-radius: 5px !important;
+		font-family: 'Open Sans', sans-serif;
+	}
+
+	.myButton {
+		background-color:#599bb3;
+		-moz-border-radius:8px;
+		-webkit-border-radius:8px;
+		border-radius:8px;
+		display:inline-block;
+		cursor:pointer;
+		color:#ffffff;
+		font-family: 'Open Sans', sans-serif;
+		font-size: 18px;
+		padding: 13px 32px;
+		text-decoration:none;
+		width: 250px;
 		text-align: center;
-		padding: 10px;
 	}
-	.btn-itembar {
-		display: inline-block;
+	.myButton:hover {
+		background-color:#408c99;
+		text-decoration: none;
 		color: white;
-		padding: 5px;
 	}
-	.oldprice, .price {
-		float: left;
-	}
-	.oldprice {
-		text-decoration: line-through;
-		font-weight: 300;
-		font-size: 15px;
-	}
-	.price {
-		font-weight: 400;
-		border-radius: 4px;
-		font-size: 15px;
-		border: 1px solid white;
-	}
-	.btn-buy {
-		float: right;
-		font-weight: 400;
-	}
+
 	</style>
 </head>
 <body>
@@ -110,36 +111,25 @@
 		<div class="logo-background"></div>
 		<div class="logo">GroupBuy</div>
 		<ul class="categories">
-			<li class="active"><a href="#">Nearby</a></li>
-			<li><a href="add.html">Add</a></li>
+			<li><a href="items.html">Nearby</a></li>
+			<li class="active"><a href="add.html">Add</a></li>
 			<li><a href="profile.html">Profile</a></li>
 		</ul>
 	</div>
 	<div class="content">
-		<div class="item">
-			<div class="itembar">
-				<div class="btn-itembar price">$90</div>
-				<div class="btn-itembar oldprice">$999</div>
-
-				<div class="btn-itembar btn-buy">Buy Now</div>
-			</div>
+		<div class="input-group input-group-lg select">
+		  <input type="text" class="form-control" placeholder="Item Name i.e. Julian Pie">
 		</div>
-		<div class="item">
-			<div class="itembar">
-				<div class="btn-itembar price">$90</div>
-				<div class="btn-itembar oldprice">$999</div>
-
-				<div class="btn-itembar btn-buy">Buy Now</div>
-			</div>
+		<div class="input-group input-group-lg select">
+		  <input type="text" class="form-control" placeholder="Short description about item.">
 		</div>
-		<div class="item">
-			<div class="itembar">
-				<div class="btn-itembar price">$90</div>
-				<div class="btn-itembar oldprice">$999</div>
-
-				<div class="btn-itembar btn-buy">Buy Now</div>
-			</div>
+		<div class="input-group input-group-lg select">
+		  <input type="text" class="form-control" placeholder="Price per unit">
 		</div>
+		<div class="input-group input-group-lg select">
+		  <a href="items.html" class="myButton">Submit</a>
+		</div>
+	</div>
 		<script src="http://code.jquery.com/jquery.js"></script>
 		<script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
 	</body>
