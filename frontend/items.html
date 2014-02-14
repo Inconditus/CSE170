@@ -16,6 +16,7 @@
 	.stickyheader {
 		position:fixed;
 		width: 100%;
+		z-index: 9999;
 	}
 	.logo-background {
 		position: absolute;
@@ -64,11 +65,10 @@
 	}
 	.content {
 		position: static;
-		padding-top: 100px;
+		padding-top: 20px;
 	}
 	.item {
 		position: relative;
-		background: url(http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg);
 		height: 200px;
 		margin: 10px 10px;
 	}
@@ -110,10 +110,23 @@
 		text-decoration: none;
 		color: white;
 	}
+	.img-responsive {
+		position: relative;
+  	 	display: block;
+  	 	margin-right: auto;
+  	 	margin-left: auto;
+ 	 	height: 200px;
+ 		max-width: 100%;
+	}
+
+	.stickyheader-margin {
+		padding-top: 95px;
+	}
 
 	</style>
 </head>
 <body>
+
 	<div class="stickyheader">
 		<div class="logo-background"></div>
 		<div class="logo">GroupBuy</div>
@@ -123,32 +136,28 @@
 			<li><a href="profile.html">Profile</a></li>
 		</ul>
 	</div>
-	<div class="content">
-		<div class="item">
-			<div class="itembar">
-				<div class="btn-itembar price">$90</div>
-				<div class="btn-itembar oldprice">$999</div>
 
-				<div class="btn-itembar btn-buy"><a href="singleitem.html">Buy Now</a></div>
+<div ng-app="myApp">
+	<div ng-controller="ItemsDisplayCtrl">
+		<div class="stickyheader-margin">
+		<div class="content" ng-repeat="item in items.cast">
+			<div class="item">
+				<img class="img-responsive" src = {{item.imageURL}}>
+				<div class="itembar">
+					<div class="btn-itembar price">{{item.newPrice}}</div>
+					<div class="btn-itembar oldprice">{{item.originalPrice}}</div>
+					<div class="btn-itembar btn-buy"><a href="singleitem.html">Buy Now</a></div>
+				</div>
 			</div>
 		</div>
-		<div class="item">
-			<div class="itembar">
-				<div class="btn-itembar price">$90</div>
-				<div class="btn-itembar oldprice">$999</div>
-
-				<div class="btn-itembar btn-buy"><a href="singleitem.html">Buy Now</a></div>
-			</div>
 		</div>
-		<div class="item">
-			<div class="itembar">
-				<div class="btn-itembar price">$90</div>
-				<div class="btn-itembar oldprice">$999</div>
+	</div>
+</div>
 
-				<div class="btn-itembar btn-buy"><a href="singleitem.html">Buy Now</a></div>
-			</div>
-		</div>
-		<script src="http://code.jquery.com/jquery.js"></script>
-		<script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
-	</body>
-	</html>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+<script type="text/javascript" src="js/itemCtrl.js"></script>
+
+</body>
+</html>
