@@ -1,5 +1,14 @@
 var myApp = angular.module('myApp', []);
 
+// app.config(function($routeProvider) {
+//     $routeProvider
+//       .when('/:itemName',
+//       {
+//         templateUrl: "singleitem.html",
+//         controller: "SingeItemsDisplayCtrl"
+//       })
+// });
+
 myApp.factory('Items', function () {
 	var Items = {};
 	Items.cast = [
@@ -49,6 +58,11 @@ myApp.factory('Items', function () {
 	return Items;
 })
 
-function ItemsDisplayCtrl($scope, Items) {
+myApp.controller("ItemsDisplayCtrl", function($scope,Items) {
 	$scope.items = Items;
-}
+});
+
+// function ItemsDisplayCtrl($scope, Items) {
+// 	$scope.items = Items;
+
+// }
