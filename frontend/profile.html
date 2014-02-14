@@ -126,6 +126,7 @@
 
 	.profilepic {
 		margin-bottom: 20px; 
+		border-radius: 200px;
 	}
 
 	.reviewlist {
@@ -146,7 +147,7 @@
 	</div>
 	<div class="content">
 		<h3 class="name">Edward T. Hung</h3>
-		<img class="input-group profilepic" src="http://lorempixel.com/400/400/people">
+		<img class="input-group profilepic" src="http://lorempixel.com/300/300/people">
 		<tabs class="container">
 			<pane title="Reviews">
 				<div ng-controller="HistoryCounter">
@@ -159,6 +160,10 @@
           				</div>
           				<br>
         			</div>
+        			<ul class="pager">
+  						<li class="previous"><a href="">&larr; Older</a></li>
+  						<li class="next"><a href="">Newer &rarr;</a></li>
+					</ul>
       			</div>
     		</pane>
     		<pane title="History">
@@ -172,6 +177,10 @@
           				</div>
           				<br>
         			</div>
+        			<ul class="pager">
+  						<li class="previous"><a href="">&larr; Older</a></li>
+  						<li class="next"><a href="">Newer &rarr;</a></li>
+					</ul>
       			</div>
     		</pane>
     	</tabs>
