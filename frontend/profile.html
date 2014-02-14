@@ -70,6 +70,14 @@
 		padding-top: 100px;
 	}
 
+	.container {
+		width: 300px;
+	}
+
+	.historylist {
+		padding: 0px 5px;
+	}
+
 	.input-group 
 	{
 		margin-left: auto;
@@ -116,6 +124,14 @@
 		padding: 10px 35px;
 	}
 
+	.profilepic {
+		margin-bottom: 20px; 
+	}
+
+	.reviewlist {
+		padding: 0px 5px;
+	}
+
 	</style>
 </head>
 <body>
@@ -130,15 +146,16 @@
 	</div>
 	<div class="content">
 		<h3 class="name">Edward T. Hung</h3>
-		<img class="input-group" src="http://lorempixel.com/400/400/people">
-		<tabs>
+		<img class="input-group profilepic" src="http://lorempixel.com/400/400/people">
+		<tabs class="container">
 			<pane title="Reviews">
 				<div ng-controller="HistoryCounter">
         			<div ng-repeat="rev in reviews">
-          				<div>
-          				Date: {{ rev.rdate| date:'shortDate' }} <br>
-		      			Item: {{ rev.ritem }} <br>
-		      			Review: {{ rev.review }} <br>
+          				<div class="reviewlist" ng-controller="HistoryCounter">
+	          				Date: {{ rev.rdate| date:'shortDate' }} <br>
+			      			Item: {{ rev.ritem }} <br>
+			      			Rating: {{ rev.rating | number }}% <br> 
+			      			Review: {{ rev.review }} <br>
           				</div>
           				<br>
         			</div>
@@ -147,10 +164,11 @@
     		<pane title="History">
       			<div ng-controller="HistoryCounter">
         			<div ng-repeat="each in items">
-          				<div>
-          				Date: {{ each.date| date:'fullDate' }} <br>
-		      			Item Sold: {{ each.item }} <br>
-		      			Amount Sold: {{ each.sold | number }} <br>
+          				<div class="historylist">
+	          				Date: {{ each.date| date:'shortDate' }} <br>
+			      			Item Sold: {{ each.item }} <br>
+			      			Amount Sold: {{ each.sold | number }} <br>
+			      			Avg Review: {{ each.avgrate }}% <br>
           				</div>
           				<br>
         			</div>
