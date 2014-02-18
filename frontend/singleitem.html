@@ -150,12 +150,11 @@
 <script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
 <script type="text/javascript" src="js/itemCtrl.js"></script>
-<script type="text/javascript">
-	$(".myButton").click( function() {
-		alert( $.cookie("listinginfo") );
-	});
-
-	alert( $.cookie("listinginfo") );
+<script src="js/jquery.cookie.js"></script>
+	<script type="text/javascript">
+		$(".myButton").click( function() {
+			alert( $.cookie("listinginfo") );
+		});
 	</script>
 </body>
 </html>
