@@ -154,6 +154,7 @@
 	<script type="text/javascript">
 		$(document).ready( function() {
 			var JSONinfo = $.cookie("listinginfo") ;
+			var JSONobj = JSON.parse(JSONinfo);
 			console.log(JSONinfo);
 			console.log(JSONinfo.name);
 			$("#name").html = JSONinfo.name;
