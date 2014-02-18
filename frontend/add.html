@@ -207,7 +207,7 @@
 				JSONinfo["price"] = price;
 				JSONinfo["imgsrc"] = imgsrc;
 
-				$.cookie("listinginfo", "hi" );
+				$.cookie("listinginfo", JSON.stringify(JSONinfo) );
 				alert( $.cookie("listinginfo") );
 				//console.log(JSON.stringify(JSONinfo));
 			}
