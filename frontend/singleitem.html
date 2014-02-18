@@ -154,10 +154,10 @@
 	<script type="text/javascript">
 		$(document).ready( function() {
 			var JSONinfo = $.cookie("listinginfo") ;
-		
+			console.log(JSONinfo);
+			console.log(JSONinfo["name"]);
 			$("#name").html = JSONinfo["name"];
-			console.log("done!");
-
+			
 		});
 
 	</script>
