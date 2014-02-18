@@ -153,10 +153,8 @@
 <script src="js/jquery.cookie.js"></script>
 	<script type="text/javascript">
 		$(document).ready( function() {
-			var JSONinfo = JSON.parse($.cookie("listinginfo")) ;
-			alert(JSONinfo);
-			var JSONinfo2 = $.cookie("listinginfo")
-			alert(JSONinfo2);
+			var JSONinfo = $.cookie("listinginfo") ;
+		
 			$("#name").html = JSONinfo["name"];
 			console.log("done!");
 
