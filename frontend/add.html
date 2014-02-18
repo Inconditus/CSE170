@@ -75,6 +75,39 @@
 	    padding-top: 10px;
 	}
 
+	.fileUpload {
+		background-color:#599bb3;
+		-moz-border-radius:8px;
+		-webkit-border-radius:8px;
+		border-radius:8px;
+		cursor:pointer;
+		color:#ffffff;
+		font-family: 'Open Sans', sans-serif;
+		font-size: 18px;
+		text-decoration:none;
+		margin-left: auto;
+	    margin-right: auto;
+	    width: 250px;
+		text-align: center;
+		padding: 13px 32px;
+	}
+
+	.fileUpload:hover {
+		background-color:#408c99;
+		text-decoration: none;
+		color: white;
+	}
+
+	.fileUpload input.upload {
+		position: absolute;
+		top: 0;
+		right: 0;
+		font-size: 30px;
+		cursor: pointer;
+		opacity: 0;
+		width: 250px
+	}
+
 	.form-control {
 		/*border-top-left-radius: 10px !important;
 		border-top-right-radius: 10px !important;
@@ -118,20 +151,32 @@
 		</ul>
 	</div>
 	<div class="content">
+		<div class="fileUpload input-group">
+    		<span>Select a photo</span>
+    		<input type="file" class="upload" />
+		</div>
+		<!-- <button type="button" class="btn btn-default navbar-btn">Sign in</button> -->
 		<div class="input-group input-group-lg select">
-		  <input type="text" class="form-control" placeholder="Item Name i.e. Julian Pie">
+		  <input type="text" class="form-control" placeholder="Item Name">
 		</div>
 		<div class="input-group input-group-lg select">
-		  <input type="text" class="form-control" placeholder="Short description about item.">
+		  <input type="text" class="form-control" placeholder="Short description">
 		</div>
 		<div class="input-group input-group-lg select">
 		  <input type="text" class="form-control" placeholder="Price per unit">
 		</div>
+		<div class="input-group">
+			<span class="input-group-addon">
+        		<input type="checkbox">
+      		</span>
+			<input type="text" class="form-control" placeholder="Min # of Buyers">
+      </div><!-- /btn-group -->
 		<div class="input-group input-group-lg select">
-		  <a href="items.html" class="myButton">Submit</a>
+		  <a href="items.html" class="myButton">Submit my listing!</a>
 		</div>
 	</div>
 		<script src="http://code.jquery.com/jquery.js"></script>
 		<script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
 	</body>
 	</html>
