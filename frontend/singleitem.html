@@ -155,7 +155,7 @@
 		$(document).ready( function() {
 			var JSONinfo = JSON.parse($.cookie("listinginfo")) ;
 
-			$("#name").html = JSONinfo.name;
+			$("#name").html = JSONinfo["name"];
 			console.log("done!");
 
 		});
