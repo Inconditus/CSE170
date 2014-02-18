@@ -153,30 +153,65 @@
 	<div class="content">
 		<div class="fileUpload input-group">
     		<span>Select a photo</span>
-    		<input type="file" class="upload" />
+    		<input id="imgup" type="file" class="upload"/>
 		</div>
 		<!-- <button type="button" class="btn btn-default navbar-btn">Sign in</button> -->
 		<div class="input-group input-group-lg select">
-		  <input type="text" class="form-control" placeholder="Item Name">
+		  <input id="name" type="text" class="form-control" placeholder="Item Name">
 		</div>
 		<div class="input-group input-group-lg select">
-		  <input type="text" class="form-control" placeholder="Short description">
+		  <input id="desc" type="text" class="form-control" placeholder="Short description">
 		</div>
 		<div class="input-group input-group-lg select">
-		  <input type="text" class="form-control" placeholder="Price per unit">
+		  <input id="price" type="text" class="form-control" placeholder="Price per unit">
 		</div>
 		<div class="input-group">
 			<span class="input-group-addon">
-        		<input type="checkbox">
+        		<input id="check" type="checkbox">
       		</span>
-			<input type="text" class="form-control" placeholder="Min # of Buyers">
+			<input id="minnum" type="text" class="form-control" placeholder="Min # of Buyers">
       </div><!-- /btn-group -->
 		<div class="input-group input-group-lg select">
-		  <a href="items.html" class="myButton">Submit my listing!</a>
+		  <a class="myButton">Submit my listing!</a>
 		</div>
 	</div>
 		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="js/jquery.cookie.js"></script>
 		<script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+
+			// $('#checked').click(function () {
+   //  			$("#txtAge").toggle(this.checked);
+			// });
+			$(".myButton").click(submit);
+
+			function submit() {
+				console.log($('#check').prop('checked'));
+
+				// var $(items) = $( "#imgup", "#name", "#desc", "#price", "#minnum")
+				var JSONinfo = {}
+				// $items.each(function() {
+				// 	JSONinfo[this.id] = $(this).val();
+				// })
+
+				var imgsrc = $("#imgup").val();
+				var name = $("#name").val();
+				var desc = $("#desc").val();
+				var price = $("#price").val();
+				var check = $('#check').prop('checked');
+
+				JSONinfo["check"] = check;
+				JSONinfo["name"] = name;
+				JSONinfo["desc"] = desc;
+				JSONinfo["price"] = price;
+				JSONinfo["imgsrc"] = imgsrc;
+
+				$.cookie("listinginfo", "hi" );
+				alert( $.cookie("listinginfo") );
+				//console.log(JSON.stringify(JSONinfo));
+			}
+			
+		</script>
 	</body>
 	</html>
