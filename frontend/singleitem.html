@@ -157,7 +157,8 @@
 			var JSONobj = JSON.parse(JSONinfo);
 			console.log(JSONobj);
 			console.log(JSONobj.name);
-			$("#name").text(JSONobj.name);
+			console.log($("#name").html());
+			$("#name").html(JSONobj.name);
 			
 		});
 
