@@ -129,14 +129,14 @@
 <div ng-app="myApp">
 	<div ng-controller="ItemsDisplayCtrl">
 	<div class="content">
-		<h3 class="name">Kittens</h3>
-		<img class="input-group" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg">
+		<h3 class="name" id="name ">Kittens</h3>
+		<img id="imgsrc" class="input-group" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg">
 		<div class="input-group">
-			<p>
+			<p id="desc">
 				Selling kittens! A whole litter of them.
 			</p>
 			<p>
-				Price/Unit: $50
+				Price/Unit: <span id="price">$50</span> 
 			</p>
 		</div>
 		<div class="input-group input-group-lg select">
@@ -152,9 +152,13 @@
 <script type="text/javascript" src="js/itemCtrl.js"></script>
 <script src="js/jquery.cookie.js"></script>
 	<script type="text/javascript">
-		$(".myButton").click( function() {
-			alert( $.cookie("listinginfo") );
-		});
+		window.onload = function() {
+			var JSONinfo = JSON.parse($.cookie("listinginfo")) ;
+
+			$("#name").html = JSONinfo.name;
+
+		};
+
 	</script>
 </body>
 </html>
