@@ -136,7 +136,7 @@
 				Selling kittens! A whole litter of them.
 			</p>
 			<p>
-				Price/Unit: <span id="price">$50</span> 
+				Price/Unit: $<span id="price">50</span> 
 			</p>
 		</div>
 		<div class="input-group input-group-lg select">
@@ -155,11 +155,10 @@
 		$(document).ready( function() {
 			var JSONinfo = $.cookie("listinginfo") ;
 			var JSONobj = JSON.parse(JSONinfo);
-			console.log(JSONobj);
-			console.log(JSONobj.name);
-			console.log($("#name").html());
+
 			$("#name").html(JSONobj.name);
-			
+			$("#desc").html(JSONobj.desc);
+			$("#price").html(JSONobj.price);
 		});
 
 	</script>
