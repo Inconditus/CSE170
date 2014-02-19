@@ -64,7 +64,7 @@
 		color: #737373;
 	}
 	.content {
-		padding-top: 200px;
+		padding-top: 150px;
 	}
 
 	.input-group 
@@ -131,6 +131,7 @@
 		text-decoration:none;
 		width: 250px;
 		text-align: center;
+		margin-bottom: 30px;
 	}
 	.myButton:hover {
 		background-color:#408c99;
@@ -189,11 +190,7 @@
 			function submit() {
 				console.log($('#check').prop('checked'));
 
-				// var $(items) = $( "#imgup", "#name", "#desc", "#price", "#minnum")
 				var JSONinfo = {}
-				// $items.each(function() {
-				// 	JSONinfo[this.id] = $(this).val();
-				// })
 
 				var imgsrc = $("#imgup").val();
 				var name = $("#name").val();
