@@ -116,7 +116,7 @@
 					<br>
 					<a href="#" class="btn btn-register btn-lg btn-outline">Sign Up</a>
 					<br>
-					<a href="items.html" class="btn btn-login btn-lg btn-outline">Sign In</a>
+					<a href="#" class="btn btn-login btn-lg btn-outline">Sign In</a>
 				</div>
 			</div>
 		</div>
@@ -124,6 +124,8 @@
 	<script src="http://code.jquery.com/jquery.js"></script>
 	<script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
 	<script>
+	var signupclicked = false;
+	var signinclicked = false;
 	$(".btn-register").click(function(evt) {
 		// link to next page
 		console.log("registration button clicked");
@@ -141,13 +143,29 @@
 			backgroundColor: 'white',
 			color: '#3e4e67'
 		});
+		if (signupclicked === true)
+		{
+			var jqxhr = $.post( "/end/login", function() {
+			  alert( "success" );
+			})
+
+			.done(function() {
+				// When done, want to redirect to listings page while logged in
+			    window.location.href = "items.html";
+			})
+			.fail(function() {
+			    alert("Failed to signup. Email in use! Pick another. ");
+			});
+			// Request body parameters
+		}
+		signupclicked = true;
 		evt.preventDefault;
 	});
 	$(".btn-login").click(function(evt) {
 		evt.preventDefault;
 		console.log("login button clicked");
 		//remove the sign in button
-		$(".btn-register").delay(80).animate({
+		$(".btn-register").delay(10).animate({
 			opacity: 0,
 			height: 0,
 			margin: 0,
@@ -157,15 +175,35 @@
 			$(".btn-register").css("display", "none");
 		});
 		//add the login form
-		$(".form-reg").slideDown("fast");
+		$(".form-reg").slideDown();
+
 		//animate color btn
 		$(".btn-login").animate({
 			backgroundColor: 'white',
 			color: '#3e4e67'
 		});
+		//remove the extra <br> above sign in button
+		$(".btn-register").next('br').remove();
+		if (signinclicked === true)
+		{
+			var jqxhr = $.post( "/end/login", function() {
+			  alert( "success" );
+			})
+
+			.done(function() {
+				// When done, want to redirect to listings page while logged in
+			    window.location.href = "items.html";
+			})
+			.fail(function() {
+			    alert("Failed to Signin. Incorrect email or password. ");
+			});
+			// Request body parameters
+		}
+		signinclicked = true;
 		evt.preventDefault;
 
 	});
+
 	</script>
 </body>
 </html>
