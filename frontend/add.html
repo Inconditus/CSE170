@@ -223,28 +223,32 @@
 				if (unfilled > 0)
 				{
 					alert("You have not filled in all the required fields. Please go back and make sure all fields are correctly filled!");
-				}
+				} else
 
-				if( isNaN(origprice) || isNaN(price) || isNaN(minnum) )
-				{
-					alert("Please enter only numbers for the prices and minimum amount of buyers.");
-				}
-				else
-				{
+					{
 
-					var JSONinfo = {}
+					if( isNaN(origprice) || isNaN(price) || isNaN(minnum) )
+					{
+						alert("Please enter only numbers for the prices and minimum amount of buyers.");
+					}
+					else
+					{
 
-					JSONinfo["check"] = check;
-					JSONinfo["name"] = name;
-					JSONinfo["desc"] = desc;
-					JSONinfo["origprice"] = origprice;
-					JSONinfo["price"] = price;
-					JSONinfo["imgsrc"] = imgsrc;
-					JSONinfo["minnum"] = minnum;
+						var JSONinfo = {}
 
-					$.cookie("listinginfo", JSON.stringify(JSONinfo) );
+						JSONinfo["check"] = check;
+						JSONinfo["name"] = name;
+						JSONinfo["desc"] = desc;
+						JSONinfo["origprice"] = origprice;
+						JSONinfo["price"] = price;
+						JSONinfo["imgsrc"] = imgsrc;
+						JSONinfo["minnum"] = minnum;
 
-					window.location.href = "http://107.170.250.75/CSE170/frontend/singleitem.html";
+						$.cookie("listinginfo", JSON.stringify(JSONinfo) );
+
+						window.location.href = "http://107.170.250.75/CSE170/frontend/singleitem.html";
+					}
+
 				}
 				//alert( $.cookie("listinginfo") );
 				//console.log(JSON.stringify(JSONinfo));
