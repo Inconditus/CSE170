@@ -170,7 +170,7 @@
 		</div>
 		<div class="input-group input-group-lg select">
 		  <input id="origprice" type="text" class="price form-control" placeholder="Original Price">
-		  <input id="price" type="text" class="price form-control" placeholder="New Price">
+		  <input id="price" type="text" class="price form-control" placeholder="Bulk Price">
 		</div>
 		<div class="input-group">
 			<span class="input-group-addon">
@@ -204,6 +204,7 @@
 				var origprice = $("#origprice").val();
 				var price = $("#price").val();
 				var check = $('#check').prop('checked');
+				var check = $('#minnum').val();
 
 				JSONinfo["check"] = check;
 				JSONinfo["name"] = name;
@@ -211,6 +212,7 @@
 				JSONinfo["origprice"] = origprice;
 				JSONinfo["price"] = price;
 				JSONinfo["imgsrc"] = imgsrc;
+				JSONinfo["minnum"] = minnum;
 
 				$.cookie("listinginfo", JSON.stringify(JSONinfo) );
 				//alert( $.cookie("listinginfo") );
