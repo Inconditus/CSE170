@@ -211,7 +211,7 @@
 
 				// Check for invalid input
 				$(".content").find(':input[type=text]').each(function(i) {
-					console.log($(this).val());
+					//console.log($(this).val());
 					if( $(this).val() === "")
 						unfilled++;
 				});
@@ -219,11 +219,11 @@
 				if( check === false )
 					unfilled--;
 
-				console.log(unfilled);
+				//console.log(unfilled);
 
 				if (unfilled > 0)
 				{
-					alert("You have not filled in all the required fields. Please go back and make sure all fields are correctly filled!");
+					alert("You have not filled in all the required fields. Please go back and make sure all fields are filled!");
 				} else
 
 					{
