@@ -194,9 +194,7 @@
 			$(".myButton").click(submit);
 
 			function submit() {
-				console.log($('#check').prop('checked'));
-
-				var JSONinfo = {}
+				//console.log($('#check').prop('checked'));
 
 				var imgsrc = $("#imgup").val();
 				var name = $("#name").val();
@@ -206,15 +204,25 @@
 				var check = $('#check').prop('checked');
 				var minnum = $('#minnum').val();
 
-				JSONinfo["check"] = check;
-				JSONinfo["name"] = name;
-				JSONinfo["desc"] = desc;
-				JSONinfo["origprice"] = origprice;
-				JSONinfo["price"] = price;
-				JSONinfo["imgsrc"] = imgsrc;
-				JSONinfo["minnum"] = minnum;
+				if( (!isNaN(origprice)) || (!isNaN(price)) || (!isNaN(minnum)) )
+				{
+					alert("Please enter only numbers for the prices and minimum amount of buyers.");
+				}
+				else
+				{
 
-				$.cookie("listinginfo", JSON.stringify(JSONinfo) );
+					var JSONinfo = {}
+
+					JSONinfo["check"] = check;
+					JSONinfo["name"] = name;
+					JSONinfo["desc"] = desc;
+					JSONinfo["origprice"] = origprice;
+					JSONinfo["price"] = price;
+					JSONinfo["imgsrc"] = imgsrc;
+					JSONinfo["minnum"] = minnum;
+
+					$.cookie("listinginfo", JSON.stringify(JSONinfo) );
+				}
 				//alert( $.cookie("listinginfo") );
 				//console.log(JSON.stringify(JSONinfo));
 			}
