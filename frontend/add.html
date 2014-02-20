@@ -207,9 +207,23 @@
 				else
 					var minnum = 0;
 
-				console.log((!isNaN(origprice)));
-				console.log((!isNaN(price)));
-				console.log(!isNaN(minnum));
+				var unfilled = 0;
+
+				// Check for invalid input
+				$(".content").find(':input[type=text]').each(function(i) {
+					if( $(this).val() )
+						unfilled++;
+				});
+
+				if( check === false )
+					unfilled--;
+
+				console.log(unfilled);
+
+				if (unfilled > 0)
+				{
+					alert("You have not filled in all the required fields. Please go back and make sure all fields are correctly filled!");
+				}
 
 				if( isNaN(origprice) || isNaN(price) || isNaN(minnum) )
 				{
