@@ -179,7 +179,7 @@
 			<input id="minnum" type="text" class="form-control" placeholder="Min # of Buyers">
       </div><!-- /btn-group -->
 		<div class="input-group input-group-lg select">
-		  <a href="singleitem.html" class="myButton">Submit my listing!</a>
+		  <a class="myButton">Submit my listing!</a>
 		</div>
 	</div>
 		<script src="http://code.jquery.com/jquery.js"></script>
@@ -222,6 +222,8 @@
 					JSONinfo["minnum"] = minnum;
 
 					$.cookie("listinginfo", JSON.stringify(JSONinfo) );
+
+					window.location.href = "http://107.170.250.75/CSE170/frontend/singleitem.html";
 				}
 				//alert( $.cookie("listinginfo") );
 				//console.log(JSON.stringify(JSONinfo));
