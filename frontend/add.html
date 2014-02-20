@@ -206,11 +206,12 @@
 					var minnum = $('#minnum').val();
 				else
 					var minnum = 0;
+
 				console.log((!isNaN(origprice)));
 				console.log((!isNaN(price)));
 				console.log(!isNaN(minnum));
 
-				if( (!isNaN(origprice)) || (!isNaN(price)) || (!isNaN(minnum)) )
+				if( isNaN(origprice) || isNaN(price) || isNaN(minnum) )
 				{
 					alert("Please enter only numbers for the prices and minimum amount of buyers.");
 				}
