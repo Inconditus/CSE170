@@ -139,6 +139,11 @@
 		color: white;
 	}
 
+	#origprice, #price {
+		width: 125px;
+		font-size: 14px;
+	}
+
 	</style>
 </head>
 <body>
@@ -164,7 +169,8 @@
 		  <input id="desc" type="text" class="form-control" placeholder="Short description">
 		</div>
 		<div class="input-group input-group-lg select">
-		  <input id="price" type="text" class="form-control" placeholder="Price per unit">
+		  <input id="origprice" type="text" class="price form-control" placeholder="Original Price">
+		  <input id="price" type="text" class="price form-control" placeholder="New Price">
 		</div>
 		<div class="input-group">
 			<span class="input-group-addon">
@@ -195,12 +201,14 @@
 				var imgsrc = $("#imgup").val();
 				var name = $("#name").val();
 				var desc = $("#desc").val();
+				var origprice = $("#origprice").val();
 				var price = $("#price").val();
 				var check = $('#check').prop('checked');
 
 				JSONinfo["check"] = check;
 				JSONinfo["name"] = name;
 				JSONinfo["desc"] = desc;
+				JSONinfo["origprice"] = origprice;
 				JSONinfo["price"] = price;
 				JSONinfo["imgsrc"] = imgsrc;
 
