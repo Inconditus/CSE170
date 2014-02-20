@@ -202,7 +202,10 @@
 				var origprice = $("#origprice").val();
 				var price = $("#price").val();
 				var check = $('#check').prop('checked');
-				var minnum = $('#minnum').val();
+				if (check === true)
+					var minnum = $('#minnum').val();
+				else
+					var minnum = 0;
 
 				if( (!isNaN(origprice)) || (!isNaN(price)) || (!isNaN(minnum)) )
 				{
