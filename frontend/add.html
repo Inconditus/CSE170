@@ -211,6 +211,7 @@
 
 				// Check for invalid input
 				$(".content").find(':input[type=text]').each(function(i) {
+					console.log($(this).val());
 					if( $(this).val() === "")
 						unfilled++;
 				});
