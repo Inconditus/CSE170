@@ -225,8 +225,18 @@
 				{
 					alert("You have not filled in all the required fields. Please go back and make sure all fields are filled!");
 				} else
-
+				{
+					if( (checked === true) && (minnum === 0))
 					{
+						alert("Please enter a number > 0 for the minimum # of buyers.");
+					}
+					else
+
+					if( (origprice < 0) || (price < 0 ) || (minnum < 0) )
+					{
+						alert("You cannot have negative numbers as prices!");
+					}
+					else
 
 					if( isNaN(origprice) || isNaN(price) || isNaN(minnum) )
 					{
