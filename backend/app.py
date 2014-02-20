@@ -17,6 +17,21 @@ class User(db.Model):
 
     def __repr__(self):
         return '<User %r>' % self.username
+class Item(db.Model):
+  id = db.Column(db.Integer, primary_key=True)
+  name = db.Column(db.Integer)
+  description = db.Column(db.String)
+  price = db.Column(db.String)
+  min_buyers = db.Column(db.Integer)
+  photo = db.Column(db.String) # make sure this is a url
+  def __init__(self, name, description, price, min_buyers)
+    self.name = name
+    self.description = description
+    self.price = price
+    self.min_buyers = min_buyers
+    self.photo = photo
+  def __repr__(self):
+    return '<Item %r>' % self.name
 
 def create_db():
   db.create_all()
@@ -30,6 +45,15 @@ def create_user(username, password):
 def user_exists(username):
   check = User.query.filter_by(username=username).first() #returns empty if doesn't exist
   return bool(check)
+
+def verify_account(username, password):
+  check = User.query.filter_by(username=username).filter_by(password=password).first()
+  return bool(check)
+
+def is_logged_in():
+  if 'user' in session:
+    return True
+  return False
 
 # routings
 
@@ -50,6 +74,16 @@ def signup():
     return jsonify( {'error': 'Username already taken.' } )
 
 @app.route('/login', methods=['POST'])
+def login():
+  if is_logged_in():
+    logout()
+  username = request.form['username']
+  password = request.form['password']
+  if verify_account(username, password):
+    session['user'] = username
+  else:
+    logout()
+    return jsonify( { 'error' : 'Invalid username or password.' } )
 @app.route('/logout', methods=['GET'])
 def logout():
  session.pop('user', None)
