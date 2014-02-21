@@ -215,7 +215,7 @@
 
 					var date = new Date();
 						date.setTime(date.getTime() + (10 * 60 * 1000));
-					$.cookie("manage", JSONstringify(manage), {expires: date});
+					$.cookie("manage", JSON.stringify(manage), {expires: date});
 				}
 				else
 				{
@@ -238,7 +238,7 @@
 
 					var date = new Date();
 						date.setTime(date.getTime() + (10 * 60 * 1000));
-					$.cookie("manage", JSONstringify(manage), {expires: date});
+					$.cookie("manage", JSON.stringify(manage), {expires: date});
 				}
 
 				//window.location.href = "http://107.170.250.75/CSE170/frontend/items.html";
