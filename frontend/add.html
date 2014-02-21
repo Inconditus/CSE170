@@ -158,8 +158,9 @@
 	</div>
 	<div class="content">
 		<div class="fileUpload input-group">
-    		<span>Select a photo</span>
-    		<input id="imgup" type="file" class="upload"/>
+			<input id="imgup" type="text" class="form-control" placeholder="Image Link">
+    		<!-- <span>Select a photo</span>
+    		<input id="imgup" type="file" class="upload"/> -->
 		</div>
 		<!-- <button type="button" class="btn btn-default navbar-btn">Sign in</button> -->
 		<div class="input-group input-group-lg select">
@@ -197,6 +198,8 @@
 				//console.log($('#check').prop('checked'));
 
 				var imgsrc = $("#imgup").val();
+				// placeholder for now
+				imgsrc = "http://allaboutuarts.ca/wp-content/uploads/2012/07/placeholder.jpg";
 				var name = $("#name").val();
 				var desc = $("#desc").val();
 				var origprice = $("#origprice").val();
