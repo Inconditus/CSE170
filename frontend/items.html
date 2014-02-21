@@ -67,6 +67,10 @@
 		position: static;
 		padding-top: 20px;
 	}
+
+	.desc {
+		display: none;
+	}
 	.item {
 		position: relative;
 		height: 200px;
@@ -74,7 +78,8 @@
 	}
 	.itembar {
 		position: absolute;
-		bottom: 0px; /*TODO edit this size*/
+		bottom: -20px; /*TODO edit this size*/
+		/* Changed bottom because added the name at the top */
 		background: rgba(68, 127, 203, 0.8);
 		width: 100%;
 		text-align: center;
@@ -85,10 +90,14 @@
 		color: white;
 		padding: 5px;
 	}
-	.oldprice, .price {
+	.origprice, .price {
 		float: left;
 	}
-	.oldprice {
+
+	.name {
+		text-align: center;
+	}
+	.origprice {
 		text-decoration: line-through;
 		font-weight: 300;
 		font-size: 15px;
@@ -137,18 +146,54 @@
 		</ul>
 	</div>
 
-<div ng-app="myApp">
-	<div ng-controller="ItemsDisplayCtrl">
+<div>
+	<div>
 		<div class="stickyheader-margin">
-		<div class="content" ng-repeat="item in items.cast">
+		<div class="content">
 			<div class="item">
-				<img class="img-responsive" src = {{item.imageURL}}>
+				<div class="name">Julian Pie</div>
+				<div class="desc">Delicious Pie! Anyone wants some?!</div>
+				<img class="img-responsive" src="http://theleftcoast.files.wordpress.com/2008/10/img_3546.jpg">
 				<div class="itembar">
-					<div class="btn-itembar price">{{item.newPrice}}</div>
-					<div class="btn-itembar oldprice">{{item.originalPrice}}</div>
+					<div class="btn-itembar price">$8</div>
+					<div class="btn-itembar origprice">$14</div>
 					<div class="btn-itembar btn-buy"><a href="singleitem.html">Buy Now</a></div>
 				</div>
 			</div>
+			<br>
+			<div class="item">
+				<div class="name">Pokemon</div>
+				<div class="desc">Everyone's favorite pokemon!</div>
+				<a href="singleitem.html"><img class="img-responsive" src="http://1-media-cdn.foolz.us/ffuuka/board/vp/image/1387/40/1387404247733.jpg"></a>
+				<div class="itembar">
+					<div class="btn-itembar price">$250</div>
+					<div class="btn-itembar origprice">$1000></div>
+					<div class="btn-itembar btn-buy"><a href="singleitem.html">Buy Now</a></div>
+				</div>
+			</div>
+			<br>
+			<div class="item">
+				<div class="name">Kittens</div>
+				<div class="desc">Selling kittens! A whole litter of them.</div>
+				<a href="singleitem.html"><img class="img-responsive" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg"></a>
+				<div class="itembar">
+					<div class="btn-itembar price">$340</div>
+					<div class="btn-itembar origprice">$500</div>
+					<div class="btn-itembar btn-buy"><a href="singleitem.html">Buy Now</a></div>
+				</div>
+			</div>
+			<br>
+			<div class="item">
+				<div class="name">Doge</div>
+				<div class="desc">Much amaze. Such wow.</div>
+				<a href="singleitem.html"><img class="img-responsive" src="http://static1.refinery29.com/bin/entry/598/600x500bm,80/1142318/doge.jpg"></a>
+				<div class="itembar">
+					<div class="btn-itembar price">$2</div>
+					<div class="btn-itembar origprice">$8</div>
+					<div class="btn-itembar btn-buy"><a href="singleitem.html">Buy Now</a></div>
+				</div>
+			</div>
+			<br>
 		</div>
 		</div>
 	</div>
@@ -157,8 +202,33 @@
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
-<script type="text/javascript" src="js/itemCtrl.js"></script>
-<script type="text/javascript" src="js/mainController.js"></script>
+<script type="text/javascript">
+	
+	// After clicking item, send information to a cookie so that the singleitem page can render the cookie
+	$(".item").click( function() {
+
+		var imgsrc = $(this).find(".img-responsive").val();
+		var name = $(this).find(".name").val();
+		var desc = $(this).find(".desc").val();
+		var origprice = $(this).find(".origprice").val();
+		var price = $(this).find(".price").val();
+
+		var JSONinfo = {}
+
+		JSONinfo["name"] = name;
+		JSONinfo["desc"] = desc;
+		JSONinfo["origprice"] = origprice;
+		JSONinfo["price"] = price;
+		JSONinfo["imgsrc"] = imgsrc;
+
+		$.cookie("listinginfo", JSON.stringify(JSONinfo) );
+
+		window.location.href = "http://107.170.250.75/CSE170/frontend/singleitem.html";
+		
+	});
+
+
+</script>
 
 </body>
 </html>
