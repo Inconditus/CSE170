@@ -134,7 +134,7 @@
 	<div ng-controller="ItemsDisplayCtrl">
 	<div class="content">
 		<h3 class="name" id="name">Kittens</h3>
-		<img id="imgsrc" class="input-group" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg">
+		<img id="imgsrc" class="input-group">
 		<div class="input-group">
 			<span class="labels">Description:</span>
 			<p id="desc">
@@ -165,11 +165,12 @@
 			var JSONinfo = $.cookie("listinginfo") ;
 			var JSONobj = JSON.parse(JSONinfo);
 
+			$("#imgsrc").attr("src", JSONobj.imgsrc);
 			$("#name").html(JSONobj.name);
 			$("#desc").html(JSONobj.desc);
 			$("#price").html(JSONobj.price);
 			$("#origprice").html(JSONobj.origprice);
-			$("#imgsrc").attr("src", JSONobj.imgsrc);
+
 
 			// if the box for a min amount of buyers was checked
 			if (JSONobj.check === true) 
