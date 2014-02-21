@@ -149,7 +149,7 @@
 
 		</div>
 		<div class="input-group input-group-lg select">
-		  <a href="items.html" class="myButton">Buy!</a>
+		  <div class="myButton">Buy!</div>
 		</div>
 	</div>
 	</div>
@@ -171,6 +171,8 @@
 			$("#price").html(JSONobj.price);
 			$("#origprice").html(JSONobj.origprice);
 
+			JSONobj["username"] = "Bobthebuilder";
+
 
 			// if the box for a min amount of buyers was checked
 			if (JSONobj.check === true) 
@@ -183,6 +185,11 @@
 				$("#minnum").html(JSONobj.minnum);
 
 			}
+
+			$(".myButton").click( function() {
+				alert("Awesome! You have opted into buying" + JSON.obj.name +"! You will be notified when" + JSONobj.username + "has purchased the item and is ready to be picked up.");
+
+			});
 		});
 
 	</script>
