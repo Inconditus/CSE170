@@ -208,6 +208,8 @@
 	// After clicking item, send information to a cookie so that the singleitem page can render the cookie
 	$(".item").click( function() {
 
+		console.log(this);
+
 		var imgsrc = $(this).find(".img-responsive").val();
 		var name = $(this).find(".name").val();
 		var desc = $(this).find(".desc").val();
