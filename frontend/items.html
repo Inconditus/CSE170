@@ -164,33 +164,33 @@
 			<div class="item">
 				<div class="name">Pokemon</div>
 				<div class="desc">Everyone's favorite pokemon!</div>
-				<a href="singleitem.html"><img class="img-responsive" src="http://1-media-cdn.foolz.us/ffuuka/board/vp/image/1387/40/1387404247733.jpg"></a>
+				<img class="img-responsive" src="http://1-media-cdn.foolz.us/ffuuka/board/vp/image/1387/40/1387404247733.jpg">
 				<div class="itembar">
 					<div class="btn-itembar price">$250</div>
 					<div class="btn-itembar origprice">$1000</div>
-					<div class="btn-itembar btn-buy"><a href="singleitem.html">Buy Now</a></div>
+					<div class="btn-itembar btn-buy">Buy Now</div>
 				</div>
 			</div>
 			<br>
 			<div class="item">
 				<div class="name">Kittens</div>
 				<div class="desc">Selling kittens! A whole litter of them.</div>
-				<a href="singleitem.html"><img class="img-responsive" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg"></a>
+				<img class="img-responsive" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg">
 				<div class="itembar">
 					<div class="btn-itembar price">$340</div>
 					<div class="btn-itembar origprice">$500</div>
-					<div class="btn-itembar btn-buy"><a href="singleitem.html">Buy Now</a></div>
+					<div class="btn-itembar btn-buy">Buy Now</div>
 				</div>
 			</div>
 			<br>
 			<div class="item">
 				<div class="name">Doge</div>
 				<div class="desc">Much amaze. Such wow.</div>
-				<a href="singleitem.html"><img class="img-responsive" src="http://static1.refinery29.com/bin/entry/598/600x500bm,80/1142318/doge.jpg"></a>
+				<img class="img-responsive" src="http://static1.refinery29.com/bin/entry/598/600x500bm,80/1142318/doge.jpg">
 				<div class="itembar">
 					<div class="btn-itembar price">$2</div>
 					<div class="btn-itembar origprice">$8</div>
-					<div class="btn-itembar btn-buy"><a href="singleitem.html">Buy Now</a></div>
+					<div class="btn-itembar btn-buy">Buy Now</div>
 				</div>
 			</div>
 			<br>
@@ -209,6 +209,32 @@
 			var JSONobj = JSON.parse(JSONinfo);
 
 			$(".content").prepend("<div class='item'><div class='name'>" + JSONobj.name + "</div><div class='desc'>" + JSONobj.desc + "</div><img class='img-responsive' src=" + JSONobj.imgsrc + ">" + "<div class='itembar'><div class='btn-itembar price'>$" + JSONobj.price + "</div><div class='btn-itembar origprice'>$" + JSONobj.origprice + "</div><div class='btn-itembar btn-buy'>Buy Now</div></div></div><br>");
+
+			$(".item").click( function() {
+
+				console.log($(this).find(".name").html());
+
+				var imgsrc = $(this).find(".img-responsive").attr("src");
+				var name = $(this).find(".name").html();
+				var desc = $(this).find(".desc").html();
+				var origprice = $(this).find(".origprice").html();
+				var price = $(this).find(".price").html();
+
+				var JSONinfo = {}
+
+				JSONinfo["name"] = name;
+				JSONinfo["desc"] = desc;
+				JSONinfo["origprice"] = origprice.substr(1);
+				JSONinfo["price"] = price.substr(1);
+				JSONinfo["imgsrc"] = imgsrc;
+
+				$.cookie("listinginfo", JSON.stringify(JSONinfo) );
+
+				console.log(JSON.stringify(JSONinfo));
+
+				//window.location.href = "http://107.170.250.75/CSE170/frontend/singleitem.html";
+				
+			});
 
 			// <div class="item">
 			// 	<div class="name">Kittens</div>
@@ -243,31 +269,31 @@
 		});
 	
 	// After clicking item, send information to a cookie so that the singleitem page can render the cookie
-	$(".item").click( function() {
+	// $(".item").click( function() {
 
-		console.log($(this).find(".name").html());
+	// 	console.log($(this).find(".name").html());
 
-		var imgsrc = $(this).find(".img-responsive").attr("src");
-		var name = $(this).find(".name").html();
-		var desc = $(this).find(".desc").html();
-		var origprice = $(this).find(".origprice").html();
-		var price = $(this).find(".price").html();
+	// 	var imgsrc = $(this).find(".img-responsive").attr("src");
+	// 	var name = $(this).find(".name").html();
+	// 	var desc = $(this).find(".desc").html();
+	// 	var origprice = $(this).find(".origprice").html();
+	// 	var price = $(this).find(".price").html();
 
-		var JSONinfo = {}
+	// 	var JSONinfo = {}
 
-		JSONinfo["name"] = name;
-		JSONinfo["desc"] = desc;
-		JSONinfo["origprice"] = origprice.substr(1);
-		JSONinfo["price"] = price.substr(1);
-		JSONinfo["imgsrc"] = imgsrc;
+	// 	JSONinfo["name"] = name;
+	// 	JSONinfo["desc"] = desc;
+	// 	JSONinfo["origprice"] = origprice.substr(1);
+	// 	JSONinfo["price"] = price.substr(1);
+	// 	JSONinfo["imgsrc"] = imgsrc;
 
-		$.cookie("listinginfo", JSON.stringify(JSONinfo) );
+	// 	$.cookie("listinginfo", JSON.stringify(JSONinfo) );
 
-		console.log(JSON.stringify(JSONinfo));
+	// 	console.log(JSON.stringify(JSONinfo));
 
-		//window.location.href = "http://107.170.250.75/CSE170/frontend/singleitem.html";
+	// 	//window.location.href = "http://107.170.250.75/CSE170/frontend/singleitem.html";
 		
-	});
+	// });
 
 
 </script>
