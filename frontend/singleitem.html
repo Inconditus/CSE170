@@ -196,7 +196,50 @@
 				alert("Awesome! You have opted into buying " + JSONobj.name +"! You will be notified when " + JSONobj.seller + " has purchased the item and is ready to be picked up.");
 
 				var JSONinfo = $.cookie("manage");
-				console.log(JSONinfo);
+				// If have not bought any item yet
+				if(typeof JSONinfo === 'undefined'){
+					var manage = {};
+					manage["count"] == 1;
+
+					var item1 = {};
+					//item["check"] = check;
+					item["name"] = JSONobj.name;
+					item["desc"] = JSONobj.desc;
+					//item["origprice"] = origprice;
+					item["price"] = JSONobj.price;
+					item["imgsrc"] = JSONob.imgsrc;
+					//item["minnum"] = minnum;
+					item["seller"] = JSONobj.seller;
+
+					manage["item1"] = item1;
+
+					var date = new Date();
+						date.setTime(date.getTime() + (10 * 60 * 1000));
+					$.cookie("manage", JSONstringify(manage), {expires: date});
+				}
+				else
+				{
+					var obj = JSON.parse(JSONinfo);
+					obj["count"] = obj.count + 1;
+
+					var item = {};
+					//item["check"] = check;
+					item["name"] = JSONobj.name;
+					item["desc"] = JSONobj.desc;
+					//item["origprice"] = origprice;
+					item["price"] = JSONobj.price;
+					item["imgsrc"] = JSONob.imgsrc;
+					//item["minnum"] = minnum;
+					item["seller"] = JSONobj.seller;
+
+					var newitem = "item" + obj.count;
+
+					manage[newitem] = item;
+
+					var date = new Date();
+						date.setTime(date.getTime() + (10 * 60 * 1000));
+					$.cookie("manage", JSONstringify(manage), {expires: date});
+				}
 
 				//window.location.href = "http://107.170.250.75/CSE170/frontend/items.html";
 

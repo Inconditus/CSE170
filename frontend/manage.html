@@ -136,7 +136,7 @@
 	</div>
 
 <div ng-app="myApp">
-	<div ng-controller="ItemsDisplayCtrl">
+	<div> WHAHAHAHAH
 	<div class="content">
 		<h3 class="name" id="name">Kittens</h3>
 		<img id="imgsrc" class="input-group">
@@ -170,47 +170,10 @@
 <script src="js/jquery.cookie.js"></script>
 	<script type="text/javascript">
 		$(document).ready( function() {
-			var JSONinfo = $.cookie("listinginfo") ;
+			var JSONinfo = $.cookie("manage") ;
 			var JSONobj = JSON.parse(JSONinfo);
 
-			$("#imgsrc").attr("src", JSONobj.imgsrc);
-			$("#name").html(JSONobj.name);
-			$("#desc").html(JSONobj.desc);
-			$("#price").html(JSONobj.price);
-			$("#origprice").html(JSONobj.origprice);
-			$("#seller").html(JSONobj.seller);
-
-			// if the box for a min amount of buyers was checked
-			if (JSONobj.check === true) 
-			{
-				// Insert the min amount of buyers
-				// TODO: This is temporary as we should show the current 
-				// buyers/total buyers needed but the current buyers should come 
-				// from the backend
-				$(".input-group p:last-child").after("<p><span class='labels'>Minimum Buyers:</span><span id='minnum'>20</span></p>");
-				$("#minnum").html(JSONobj.minnum);
-
-			}
-
-			$(".myButton").click( function() {
-				alert("Awesome! You have opted into buying " + JSONobj.name +"! You will be notified when " + JSONobj.seller + " has purchased the item and is ready to be picked up.");
-
-				window.location.href = "http://107.170.250.75/CSE170/frontend/items.html";
-
-			});
-
-			$("#seller").click( function() {
-				var profile = {}
-
-				profile["user"] = JSONobj.seller;
-
-				var date = new Date();
-				date.setTime(date.getTime() + (1 * 60 * 1000));
-
-				$.cookie("user", JSON.stringify(profile), { expires: date } );
-
-				window.location.href = "http://107.170.250.75/CSE170/frontend/profile.html";
-			});
+			console.log(JSONobj);
 		});
 
 	</script>
