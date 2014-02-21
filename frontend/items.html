@@ -204,6 +204,51 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
 <script src="js/jquery.cookie.js"></script>
 <script type="text/javascript">
+	$(document).ready( function() {
+			var JSONinfo = $.cookie("newitem") ;
+			var JSONobj = JSON.parse(JSONinfo);
+
+			$(".content").prepend("<div class='item'>
+				<div class='name'>" + JSONobj.name + "</div>
+				<div class='desc'>" + JSONobj.desc + "</div><img class='img-responsive' src=" + JSONobj.imgsrc + ">" + "<div class='itembar'>
+					<div class='btn-itembar price'>$" + JSONobj.price + "</div>
+					<div class='btn-itembar origprice'>$" + JSONobj.origprice + "</div>
+					<div class='btn-itembar btn-buy'>Buy Now</div>
+				</div>
+			</div>
+			<br>");
+
+			// <div class="item">
+			// 	<div class="name">Kittens</div>
+			// 	<div class="desc">Selling kittens! A whole litter of them.</div>
+			// 	<a href="singleitem.html"><img class="img-responsive" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg"></a>
+			// 	<div class="itembar">
+			// 		<div class="btn-itembar price">$340</div>
+			// 		<div class="btn-itembar origprice">$500</div>
+			// 		<div class="btn-itembar btn-buy"><a href="singleitem.html">Buy Now</a></div>
+			// 	</div>
+			// </div>
+			// <br>
+
+			// $("#imgsrc").attr("src", JSONobj.imgsrc);
+			// $("#name").html(JSONobj.name);
+			// $("#desc").html(JSONobj.desc);
+			// $("#price").html(JSONobj.price);
+			// $("#origprice").html(JSONobj.origprice);
+
+
+			// // if the box for a min amount of buyers was checked
+			// if (JSONobj.check === true) 
+			// {
+			// 	// Insert the min amount of buyers
+			// 	// TODO: This is temporary as we should show the current 
+			// 	// buyers/total buyers needed but the current buyers should come 
+			// 	// from the backend
+			// 	$(".input-group p:last-child").after("<p><span class='labels'>Minimum Buyers:</span><span id='minnum'>20</span></p>");
+			// 	$("#minnum").html(JSONobj.minnum);
+
+			// }
+		});
 	
 	// After clicking item, send information to a cookie so that the singleitem page can render the cookie
 	$(".item").click( function() {
