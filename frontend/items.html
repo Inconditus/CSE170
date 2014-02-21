@@ -208,13 +208,13 @@
 	// After clicking item, send information to a cookie so that the singleitem page can render the cookie
 	$(".item").click( function() {
 
-		console.log(this.find(".name").val());
+		console.log($(this).find(".name").html();
 
-		var imgsrc = $(this).find(".img-responsive").val();
-		var name = $(this).find(".name").val();
-		var desc = $(this).find(".desc").val();
-		var origprice = $(this).find(".origprice").val();
-		var price = $(this).find(".price").val();
+		var imgsrc = $(this).find(".img-responsive").attr("src");
+		var name = $(this).find(".name").html();
+		var desc = $(this).find(".desc").html();
+		var origprice = $(this).find(".origprice").html();
+		var price = $(this).find(".price").html();
 
 		var JSONinfo = {}
 
