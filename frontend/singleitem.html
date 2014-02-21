@@ -194,6 +194,21 @@
 			$(".myButton").click( function() {
 				alert("Awesome! You have opted into buying " + JSONobj.name +"! You will be notified when " + JSONobj.seller + " has purchased the item and is ready to be picked up.");
 
+				window.location.href = "http://107.170.250.75/CSE170/frontend/items.html";
+
+			});
+
+			$("#seller").click( function() {
+				var profile = {}
+
+				profile["user"] = JSONobj.seller;
+
+				var date = new Date();
+				date.setTime(date.getTime() + (1 * 60 * 1000));
+
+				$.cookie("user", JSON.stringify(profile), { expires: date } );
+
+				window.location.href = "http://107.170.250.75/CSE170/frontend/profile.html";
 			});
 		});
 
