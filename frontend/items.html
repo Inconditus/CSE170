@@ -240,64 +240,39 @@
 				
 			});
 
-			// <div class="item">
-			// 	<div class="name">Kittens</div>
-			// 	<div class="desc">Selling kittens! A whole litter of them.</div>
-			// 	<a href="singleitem.html"><img class="img-responsive" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg"></a>
-			// 	<div class="itembar">
-			// 		<div class="btn-itembar price">$340</div>
-			// 		<div class="btn-itembar origprice">$500</div>
-			// 		<div class="btn-itembar btn-buy"><a href="singleitem.html">Buy Now</a></div>
-			// 	</div>
-			// </div>
-			// <br>
-
-			// $("#imgsrc").attr("src", JSONobj.imgsrc);
-			// $("#name").html(JSONobj.name);
-			// $("#desc").html(JSONobj.desc);
-			// $("#price").html(JSONobj.price);
-			// $("#origprice").html(JSONobj.origprice);
-
-
-			// // if the box for a min amount of buyers was checked
-			// if (JSONobj.check === true) 
-			// {
-			// 	// Insert the min amount of buyers
-			// 	// TODO: This is temporary as we should show the current 
-			// 	// buyers/total buyers needed but the current buyers should come 
-			// 	// from the backend
-			// 	$(".input-group p:last-child").after("<p><span class='labels'>Minimum Buyers:</span><span id='minnum'>20</span></p>");
-			// 	$("#minnum").html(JSONobj.minnum);
-
-			// }
+			
 		});
 	
 	// After clicking item, send information to a cookie so that the singleitem page can render the cookie
-	// $(".item").click( function() {
+	$(".item").click( function() {
 
-	// 	console.log($(this).find(".name").html());
+		console.log($(this).find(".name").html());
 
-	// 	var imgsrc = $(this).find(".img-responsive").attr("src");
-	// 	var name = $(this).find(".name").html();
-	// 	var desc = $(this).find(".desc").html();
-	// 	var origprice = $(this).find(".origprice").html();
-	// 	var price = $(this).find(".price").html();
+		var imgsrc = $(this).find(".img-responsive").attr("src");
+		var name = $(this).find(".name").html();
+		var desc = $(this).find(".desc").html();
+		var origprice = $(this).find(".origprice").html();
+		var price = $(this).find(".price").html();
 
-	// 	var JSONinfo = {}
+		var JSONinfo = {}
 
-	// 	JSONinfo["name"] = name;
-	// 	JSONinfo["desc"] = desc;
-	// 	JSONinfo["origprice"] = origprice.substr(1);
-	// 	JSONinfo["price"] = price.substr(1);
-	// 	JSONinfo["imgsrc"] = imgsrc;
+		JSONinfo["name"] = name;
+		JSONinfo["desc"] = desc;
+		JSONinfo["origprice"] = origprice.substr(1);
+		JSONinfo["price"] = price.substr(1);
+		JSONinfo["imgsrc"] = imgsrc;
 
-	// 	$.cookie("listinginfo", JSON.stringify(JSONinfo) );
+		// 1 min expiry for cookie
+		// var date = new Date();
+		// date.setTime(date.getTime() + (1 * 60 * 1000));
 
-	// 	console.log(JSON.stringify(JSONinfo));
+		$.cookie("listinginfo", JSON.stringify(JSONinfo) );
 
-	// 	//window.location.href = "http://107.170.250.75/CSE170/frontend/singleitem.html";
+		console.log(JSON.stringify(JSONinfo));
+
+		window.location.href = "http://107.170.250.75/CSE170/frontend/singleitem.html";
 		
-	// });
+	});
 
 
 </script>
