@@ -208,15 +208,7 @@
 			var JSONinfo = $.cookie("newitem") ;
 			var JSONobj = JSON.parse(JSONinfo);
 
-			$(".content").prepend("<div class='item'>
-				<div class='name'>" + JSONobj.name + "</div>
-				<div class='desc'>" + JSONobj.desc + "</div><img class='img-responsive' src=" + JSONobj.imgsrc + ">" + "<div class='itembar'>
-					<div class='btn-itembar price'>$" + JSONobj.price + "</div>
-					<div class='btn-itembar origprice'>$" + JSONobj.origprice + "</div>
-					<div class='btn-itembar btn-buy'>Buy Now</div>
-				</div>
-			</div>
-			<br>");
+			$(".content").prepend("<div class='item'><div class='name'>" + JSONobj.name + "</div><div class='desc'>" + JSONobj.desc + "</div><img class='img-responsive' src=" + JSONobj.imgsrc + ">" + "<div class='itembar'><div class='btn-itembar price'>$" + JSONobj.price + "</div><div class='btn-itembar origprice'>$" + JSONobj.origprice + "</div><div class='btn-itembar btn-buy'>Buy Now</div></div></div><br>");
 
 			// <div class="item">
 			// 	<div class="name">Kittens</div>
