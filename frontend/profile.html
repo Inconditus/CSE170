@@ -133,6 +133,12 @@
 		padding: 0px 5px;
 	}
 
+	hr {
+		color: #599bb3;
+		background-color: #599bb3;
+		height: 5px;
+	}
+
 	</style>
 </head>
 <body>
@@ -159,7 +165,7 @@
 			      			Rating: {{ rev.rating | number }}% <br> 
 			      			Review: {{ rev.review }} <br>
           				</div>
-          				<br>
+          				<hr>
         			</div>
         			<ul class="pager">
   						<li class="previous"><a href="">&larr; Older</a></li>
@@ -176,7 +182,7 @@
 			      			Amount Sold: {{ each.sold | number }} <br>
 			      			Avg Review: {{ each.avgrate }}% <br>
           				</div>
-          				<br>
+          				<hr>
         			</div>
         			<ul class="pager">
   						<li class="previous"><a href="">&larr; Older</a></li>

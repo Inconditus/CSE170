@@ -217,7 +217,7 @@
 					console.log(manage);
 
 					var date = new Date();
-						date.setTime(date.getTime() + (1 * 60 * 1000));
+						date.setTime(date.getTime() + (5 * 60 * 1000));
 					$.cookie("manage", JSON.stringify(manage), {expires: date});
 				}
 				else
@@ -241,7 +241,7 @@
 					obj[newitem] = item;
 
 					var date = new Date();
-						date.setTime(date.getTime() + (1 * 60 * 1000));
+						date.setTime(date.getTime() + (5 * 60 * 1000));
 					$.cookie("manage", JSON.stringify(obj), {expires: date});
 				}
 
@@ -255,7 +255,7 @@
 				profile["user"] = JSONobj.seller;
 
 				var date = new Date();
-				date.setTime(date.getTime() + (1 * 60 * 1000));
+				date.setTime(date.getTime() + (5 * 60 * 1000));
 
 				$.cookie("user", JSON.stringify(profile), { expires: date } );
 
