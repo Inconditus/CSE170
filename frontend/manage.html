@@ -131,7 +131,7 @@
 			<li><a href="items.html">Listings</a></li>
 			<li><a href="add.html">Add</a></li>
 			<li><a href="profile.html">My Profile</a></li>
-			<li><a href="manage.html">Manage</a></li>
+			<li class="active"><a href="manage.html">Manage</a></li>
 		</ul>
 	</div>
 
@@ -194,9 +194,6 @@
 
 			$(".myButton").click( function() {
 				alert("Awesome! You have opted into buying " + JSONobj.name +"! You will be notified when " + JSONobj.seller + " has purchased the item and is ready to be picked up.");
-
-				var JSONinfo = $.cookie("manage");
-				console.log(JSONinfo);
 
 				window.location.href = "http://107.170.250.75/CSE170/frontend/items.html";
 
