@@ -213,8 +213,10 @@
 
 					manage["item1"] = item;
 
+					console.log(manage);
+
 					var date = new Date();
-						date.setTime(date.getTime() + (10 * 60 * 1000));
+						date.setTime(date.getTime() + (1 * 60 * 1000));
 					$.cookie("manage", JSON.stringify(manage), {expires: date});
 				}
 				else
@@ -238,7 +240,7 @@
 					manage[newitem] = item;
 
 					var date = new Date();
-						date.setTime(date.getTime() + (10 * 60 * 1000));
+						date.setTime(date.getTime() + (1 * 60 * 1000));
 					$.cookie("manage", JSON.stringify(manage), {expires: date});
 				}
 
