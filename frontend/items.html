@@ -220,8 +220,8 @@
 
 		JSONinfo["name"] = name;
 		JSONinfo["desc"] = desc;
-		JSONinfo["origprice"] = origprice;
-		JSONinfo["price"] = price;
+		JSONinfo["origprice"] = origprice.substr(1);
+		JSONinfo["price"] = price.substr(1);
 		JSONinfo["imgsrc"] = imgsrc;
 
 		$.cookie("listinginfo", JSON.stringify(JSONinfo) );
