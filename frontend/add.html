@@ -258,7 +258,10 @@
 						JSONinfo["imgsrc"] = imgsrc;
 						JSONinfo["minnum"] = minnum;
 
-						$.cookie("newitem", JSON.stringify(JSONinfo) );
+						var date = new Date();
+						date.setTime(date.getTime() + (1 * 60 * 1000));
+
+						$.cookie("newitem", JSON.stringify(JSONinfo), { expires: date } );
 
 						window.location.href = "http://107.170.250.75/CSE170/frontend/items.html";
 					}

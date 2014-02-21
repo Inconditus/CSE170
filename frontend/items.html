@@ -228,6 +228,10 @@
 				JSONinfo["price"] = price.substr(1);
 				JSONinfo["imgsrc"] = imgsrc;
 
+				// 1 min expiry for cookie
+				// var date = new Date();
+				// date.setTime(date.getTime() + (1 * 60 * 1000));
+
 				$.cookie("listinginfo", JSON.stringify(JSONinfo) );
 
 				console.log(JSON.stringify(JSONinfo));
