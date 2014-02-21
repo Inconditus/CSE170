@@ -113,7 +113,7 @@
 		color: white;
 	}
 
-	.name, .header {
+	.name, .header, .price {
 		text-align: center;
 	}
 
@@ -180,7 +180,7 @@
 				{
 					var item = JSONobj["item" + (i+1)];
 
-					$(".content").append("<div class='item'><div class='name'>" + item.name + "</div><img class='img-responsive input-group' src=" + item.imgsrc +"><div class='input-group price'>Buying for $" + item.price + "</div></div>");
+					$(".content").append("<div class='item'><div class='name'>" + item.name + "</div><img class='img-responsive input-group' src=" + item.imgsrc +"><div class='price'>Buying for $" + item.price + "</div></div>");
 
 					// $(".imgsrc").attr("src", item.imgsrc);
 					// $(".name").html(item.name);
