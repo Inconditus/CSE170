@@ -24,7 +24,7 @@ class Item(db.Model):
   price = db.Column(db.String)
   min_buyers = db.Column(db.Integer)
   photo = db.Column(db.String) # make sure this is a url
-  def __init__(self, name, description, price, min_buyers)
+  def __init__(self, name, description, price, min_buyers, photo):
     self.name = name
     self.description = description
     self.price = price
@@ -42,6 +42,11 @@ def create_user(username, password):
   db.session.commit()
   return new_user
 
+def create_item(name, description, price, min_buyers, photo):
+  new_item = Item(name, description, price, min_buyers, photo)
+  db.session.add(new_item)
+  db.session.commit()
+  return new_item 
 def user_exists(username):
   check = User.query.filter_by(username=username).first() #returns empty if doesn't exist
   return bool(check)
@@ -89,7 +94,26 @@ def logout():
  session.pop('user', None)
  return jsonify( { 'result': 'success' } )
 
+@app.route('/listings', methods=['GET'])
+def get_listings():
+ listings = Item.query.order_by(Item.id).all()
+ return listings
+
+@app.route('/item/add', methods=['POST'])
+def add_item():
+  if not is_logged_in():
+    return jsonify( {'error': 'Not logged in' } )
+  else:
+    name = request.form['name']
+    description = request.form['description']
+    price = request.form['price']
+    min_buyers = request.form['min_buyers']
+    # TODO create a method that uploads the image to the server or imgur
+    photo = request.form['photo']
+    create_item(name, description, price, min_buyers, photo)
+    return jsonify({'result': 'success'})
 
 if __name__ == '__main__':
   app.secret_key= '(nj32*H23i32h32bw39F(U&WBERHYBFR'
   app.run(host='0.0.0.0', debug=True)
+
