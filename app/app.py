@@ -78,15 +78,15 @@ def default():
 @app.route('/singleitem')
 @app.route('/singleitem/<name>')
 def single_item(name=None):
-  render_template('singleitem.html')
+  return render_template('singleitem.html')
 
 @app.route('/items/')
 def items():
-  render_template('items.html')
+  return render_template('items.html')
 
 @app.route('/profile/')
 def profile():
-  render_template('profile.html')
+  return render_template('profile.html')
 
 # API Routings
 

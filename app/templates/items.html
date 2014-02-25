@@ -4,149 +4,10 @@
 	<meta charset="UTF-8">
 	<title>Group buy</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-
-	<style>
-	body {
-		background: #f0f2f5;
-		font-family: 'Open Sans', sans-serif;
-	}
-	.stickyheader {
-		position:fixed;
-		width: 100%;
-		z-index: 9999;
-	}
-	.logo-background {
-		position: absolute;
-		height: 60px;
-		width: 100%;
-		background-image: url(staticheader.jpg);
-		z-index: 5;
-		opacity: 0.9;
-	}
-	.logo {
-		position: absolute;
-		text-align: center;
-		width: 100%;
-		z-index: 10;
-		color:white;
-		font-family: 'Lobster';
-		font-size: 23px;
-		padding-top:10px;
-		text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
-	}
-	.categories { 
-		position: fixed;
-		z-index:999990;
-		margin-top: 60px;
-		text-align: center;
-		padding:8px;
-		display:inline-block;
-		background: #fcfcfd;
-		width: 100%;
-	}
-	.categories li {
-		display: inline-block;
-		padding: 3px 10px;
-		list-style-type: none;
-	}
-	.categories li.active {
-		border: 1px solid rgba(0,0,0,0.1);
-		border-radius: 4px;
-	}
-	.categories li a {
-		color: #a6a6a6;
-	}
-	.categories li.active a {
-
-		color: #737373;
-	}
-	.content {
-		position: static;
-		padding-top: 20px;
-	}
-
-	.desc, .seller {
-		display: none;
-	}
-	.item {
-		position: relative;
-		height: 200px;
-		margin: 10px 10px;
-	}
-	.itembar {
-		position: absolute;
-		bottom: -20px; /*TODO edit this size*/
-		/* Changed bottom because added the name at the top */
-		background: rgba(68, 127, 203, 0.8);
-		width: 100%;
-		text-align: center;
-		padding: 10px;
-	}
-
-	.input-group 
-	{
-		margin-left: auto;
-	    margin-right: auto;
-	    width: 250px;
-	    padding-top: 10px;
-	}
-
-	.btn-itembar {
-		display: inline-block;
-		color: white;
-		padding: 5px;
-	}
-	.origprice, .price {
-		float: left;
-	}
-
-	.name {
-		text-align: center;
-
-	}
-	.origprice {
-		text-decoration: line-through;
-		font-weight: 300;
-		font-size: 15px;
-	}
-
-	.options {
-		width: auto;
-	}
-	.price {
-		font-weight: 400;
-		border-radius: 4px;
-		font-size: 15px;
-		border: 1px solid white;
-	}
-	.btn-buy {
-		float: right;
-		font-weight: 400;
-	}
-	.btn-buy a {
-		color: white;
-}
-	.btn-buy a:hover{
-		text-decoration: none;
-		color: white;
-	}
-	.img-responsive {
-		position: relative;
-  	 	display: block;
-  	 	margin-right: auto;
-  	 	margin-left: auto;
- 	 	height: 200px;
- 		max-width: 100%;
-	}
-
-	.stickyheader-margin {
-		padding-top: 95px;
-	}
-
-	</style>
+	<link rel="stylesheet" href="{{url_for('static', filename='css/items.css')}}">
 </head>
 <body>
 
@@ -156,7 +17,7 @@
 		<ul class="categories">
 			<li class="active"><a href="#">Listings</a></li>
 			<!-- <li><a href="add.html">Add</a></li> -->
-			<li><a href="profile.html">My Profile</a></li>
+			<li><a href="/profile/">My Profile</a></li>
 			<!-- <li><a href="manage.html">Manage</a></li> -->
 		</ul>
 	</div>
@@ -235,8 +96,8 @@
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
-<script src="js/jquery.cookie.js"></script>
-<script src-"js/bootstrap.js"></script>
+<script src="{{url_for('static', filename='js/jquery.cookies.js')}}"></script>
+<script src-"{{url_for('static', filename='js/bootstrap.js')}}"></script>
 <script type="text/javascript">
 	$(document).ready( function() {
 			var JSONinfo = $.cookie("newitem") ;
