@@ -85,6 +85,15 @@
 		text-align: center;
 		padding: 10px;
 	}
+
+	.input-group 
+	{
+		margin-left: auto;
+	    margin-right: auto;
+	    width: 250px;
+	    padding-top: 10px;
+	}
+
 	.btn-itembar {
 		display: inline-block;
 		color: white;
@@ -101,6 +110,10 @@
 		text-decoration: line-through;
 		font-weight: 300;
 		font-size: 15px;
+	}
+
+	.options {
+		width: auto;
 	}
 	.price {
 		font-weight: 400;
@@ -141,9 +154,9 @@
 		<div class="logo">GroupBuy</div>
 		<ul class="categories">
 			<li class="active"><a href="#">Listings</a></li>
-			<li><a href="add.html">Add</a></li>
+			<!-- <li><a href="add.html">Add</a></li> -->
 			<li><a href="profile.html">My Profile</a></li>
-			<li><a href="manage.html">Manage</a></li>
+			<!-- <li><a href="manage.html">Manage</a></li> -->
 		</ul>
 	</div>
 
@@ -151,6 +164,20 @@
 	<div>
 		<div class="stickyheader-margin">
 		<div class="content">
+			<!-- <div class="options"> -->
+				<div class="input-group">
+				<input id="search" type="text" class="form-control" placeholder="Search">
+				<span class="input-group-btn">
+					<button class="btn btn-default search" type="button"><span class="glyphicon glyphicon-search"></span></button>
+				</span>
+				</div>
+
+				<div class="input-group input-group-lg options">
+		  			<button class="btn btn-default add" data-toggle="modal" data-target="#add">Add <span class="glyphicon glyphicon-plus"></span></button>
+		  			<button class="btn btn-default manage" type="button">Manage <span class="glyphicon glyphicon-wrench"></span></button>
+				</div>
+
+			<!-- </div> -->
 			<div class="item">
 				<div class="name">Julian Pie</div>
 				<div class="desc">Delicious Pie! Anyone wants some?!</div>
@@ -208,6 +235,7 @@
 <script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
 <script src="js/jquery.cookie.js"></script>
+<script src-"js/bootstrap.js"></script>
 <script type="text/javascript">
 	$(document).ready( function() {
 			var JSONinfo = $.cookie("newitem") ;
@@ -281,6 +309,14 @@
 
 		window.location.href = "http://107.170.250.75/CSE170/frontend/singleitem.html";
 		
+	});
+
+	$(".add").click( function() {
+		window.location.href = "http://107.170.250.75/CSE170/frontend/add.html";
+	});
+
+	$(".manage").click( function() {
+		window.location.href = "http://107.170.250.75/CSE170/frontend/manage.html";
 	});
 
 
