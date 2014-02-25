@@ -5,7 +5,6 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 db = SQLAlchemy(app)
 
-  
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True)
@@ -17,6 +16,7 @@ class User(db.Model):
 
     def __repr__(self):
         return '<User %r>' % self.username
+
 class Item(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.Integer)
@@ -24,12 +24,16 @@ class Item(db.Model):
   price = db.Column(db.String)
   min_buyers = db.Column(db.Integer)
   photo = db.Column(db.String) # make sure this is a url
-  def __init__(self, name, description, price, min_buyers, photo):
+  user_id = db.Column(db.Integer) # relationships are hard 
+
+  def __init__(self, name, description, price, min_buyers, photo, user_id):
     self.name = name
     self.description = description
     self.price = price
     self.min_buyers = min_buyers
     self.photo = photo
+    self.user_id = user_id
+
   def __repr__(self):
     return '<Item %r>' % self.name
 
@@ -42,18 +46,23 @@ def create_user(username, password):
   db.session.commit()
   return new_user
 
-def create_item(name, description, price, min_buyers, photo):
-  new_item = Item(name, description, price, min_buyers, photo)
+def create_item(name, description, price, min_buyers, photo, user_id):
+  new_item = Item(name, description, price, min_buyers, photo, user_id)
   db.session.add(new_item)
   db.session.commit()
   return new_item 
+
 def user_exists(username):
   check = User.query.filter_by(username=username).first() #returns empty if doesn't exist
   return bool(check)
 
+def get_user_by_id(user_id):
+  user = User.query.filter_by(id=user_id).first() # already verified by session to exist
+  return user
+
 def verify_account(username, password):
   check = User.query.filter_by(username=username).filter_by(password=password).first()
-  return bool(check)
+  return check
 
 def is_logged_in():
   if 'user' in session:
@@ -73,7 +82,7 @@ def signup():
   password = request.form['password']
   if user_exists(username) == False:
     new_user = create_user(username, password)
-    session['user'] = new_user.username
+    session['user'] = new_user.id
     return jsonify( {'result': 'success' } )
   else:
     return jsonify( {'error': 'Username already taken.' } )
@@ -84,11 +93,13 @@ def login():
     logout()
   username = request.form['username']
   password = request.form['password']
-  if verify_account(username, password):
-    session['user'] = username
+  account = verify_account(username, password)
+  if bool(account):
+    session['user'] = account.id
   else:
     logout()
     return jsonify( { 'error' : 'Invalid username or password.' } )
+
 @app.route('/logout', methods=['GET'])
 def logout():
  session.pop('user', None)
@@ -110,7 +121,7 @@ def add_item():
     min_buyers = request.form['min_buyers']
     # TODO create a method that uploads the image to the server or imgur
     photo = request.form['photo']
-    create_item(name, description, price, min_buyers, photo)
+    create_item(name, description, price, min_buyers, photo, session['user'])
     return jsonify({'result': 'success'})
 
 if __name__ == '__main__':
