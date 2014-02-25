@@ -145,18 +145,18 @@
 		});
 		if (signupclicked === true)
 		{
-			// var jqxhr = $.post( "/end/login", function() {
-			//   alert( "success" );
-			// })
+			var jqxhr = $.post( "/end/signup", function() {
+			  alert( "success" );
+			})
 
-			// .done(function() {
-			// 	// When done, want to redirect to listings page while logged in
-			//     window.location.href = "items.html";
-			// })
-			// .fail(function() {
-			//     alert("Failed to signup. Email in use! Pick another. ");
-			// });
-			// Request body parameters
+			.done(function() {
+				// When done, want to redirect to listings page while logged in
+			    window.location.href = "items.html";
+			})
+			.fail(function() {
+			    alert("Failed to signup. Email in use! Pick another. ");
+			});
+			Request body parameters
 			window.location.href = "http://107.170.250.75/CSE170/frontend/items.html";
 		}
 		signupclicked = true;
@@ -187,18 +187,18 @@
 		$(".btn-register").next('br').remove();
 		if (signinclicked === true)
 		{
-			// var jqxhr = $.post( "/end/login", function() {
-			//   alert( "success" );
-			// })
+			var jqxhr = $.post( "/end/login", function() {
+			  alert( "success" );
+			})
 
-			// .done(function() {
-			// 	// When done, want to redirect to listings page while logged in
-			//     window.location.href = "items.html";
-			// })
-			// .fail(function() {
-			//     alert("Failed to Signin. Incorrect email or password. ");
-			// });
-			// Request body parameters
+			.done(function() {
+				// When done, want to redirect to listings page while logged in
+			    window.location.href = "items.html";
+			})
+			.fail(function() {
+			    alert("Failed to Signin. Incorrect email or password. ");
+			});
+			Request body parameters
 			window.location.href = "http://107.170.250.75/CSE170/frontend/items.html";
 		}
 		signinclicked = true;
