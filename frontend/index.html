@@ -93,6 +93,12 @@
 		/*margin-top: 30px;*/
 		font-weight:300;
 	}
+
+	.btn-back {
+		display: none;
+		font-weight: 300;
+	}
+
 	</style>
 </head>
 <body>
@@ -117,6 +123,8 @@
 					<a href="#" class="btn btn-register btn-lg btn-outline">Sign Up</a>
 					<br>
 					<a href="#" class="btn btn-login btn-lg btn-outline">Sign In</a>
+					
+					<a href="#" class="btn btn-back btn-lg btn-outline">Back</a>
 				</div>
 			</div>
 		</div>
@@ -143,6 +151,11 @@
 			backgroundColor: 'white',
 			color: '#3e4e67'
 		});
+
+		$(".btn-back").css("display","block");
+
+		//$(".btn-register").before("<br>");
+
 		if (signupclicked === true)
 		{
 			var jqxhr = $.post( "/end/signup", function() {
@@ -162,19 +175,63 @@
 		signupclicked = true;
 		evt.preventDefault;
 	});
+
+	$(".btn-back").click(function(evt) {
+		evt.preventDefault;
+
+		// Reset back to original non clicked settings
+		signupclicked = false;
+		signinclicked = false;
+
+		$(".form-reg").slideUp("fast");
+		$(".btn-login").animate({
+			opacity: 100
+		}, 100, function() 
+		{ 
+			$(".btn-login").css("display", "block");
+		});
+
+		$(".btn-register").show();
+		$(".btn-login").show();
+
+		$(".btn-register").css({
+			color: 'white',
+			backgroundColor: 'transparent'
+			// border-color: 'white'
+		});
+
+		$(".btn-login").css({
+			color: 'white',
+			backgroundColor: 'transparent'
+			// border-color: 'white'
+		});
+
+		$(this).hide();
+
+		if ($(this).prev().is("br"))
+		{
+			$(".btn-back").prev().remove();
+			$(".form-reg").after("<br>");
+			//console.log($(".btn-back").prev());
+
+		}
+	});
+
 	$(".btn-login").click(function(evt) {
 		evt.preventDefault;
 		console.log("login button clicked");
 		//remove the sign in button
-		$(".btn-register").delay(10).animate({
-			opacity: 0,
-			height: 0,
-			margin: 0,
-			padding: 0
-		}, 50, function() 
-		{ 
-			$(".btn-register").css("display", "none");
-		});
+		// $(".btn-register").delay(10).animate({
+		// 	opacity: 0,
+		// 	height: 0,
+		// 	margin: 0,
+		// 	padding: 0
+		// }, 50, function() 
+		// { 
+		// 	$(".btn-register").css("display", "none");
+		// });
+
+		$(".btn-register").css("display", "none");
 		//add the login form
 		$(".form-reg").slideDown();
 
@@ -183,8 +240,13 @@
 			backgroundColor: 'white',
 			color: '#3e4e67'
 		});
+
+		if (signinclicked === false)
+			$(".btn-back").before("<br>");
+
+		$(".btn-back").css("display","block");
 		//remove the extra <br> above sign in button
-		$(".btn-register").next('br').remove();
+		$(".form-reg").next('br').remove();
 		if (signinclicked === true)
 		{
 			var jqxhr = $.post( "/backend/login", function() {
