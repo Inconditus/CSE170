@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Group buy</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+	<style>
+	body {
+		background: #f0f2f5;
+		font-family: 'Open Sans', sans-serif;
+	}
+	.stickyheader {
+		position:fixed;
+		width: 100%;
+		z-index: 9999;
+	}
+	.logo-background {
+		position: absolute;
+		height: 60px;
+		width: 100%;
+		background-image: url(staticheader.jpg);
+		z-index: 5;
+		opacity: 0.9;
+	}
+	.logo {
+		position: absolute;
+		text-align: center;
+		width: 100%;
+		z-index: 10;
+		color:white;
+		font-family: 'Lobster';
+		font-size: 23px;
+		padding-top:10px;
+		text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+	}
+	.categories { 
+		position: fixed;
+		z-index: 10;
+		margin-top: 60px;
+		text-align: center;
+		padding:8px;
+		display:inline-block;
+		background: #fcfcfd;
+		width: 100%;
+	}
+	.categories li {
+		display: inline-block;
+		padding: 3px 10px;
+		list-style-type: none;
+	}
+	.categories li.active {
+		border: 1px solid rgba(0,0,0,0.1);
+		border-radius: 4px;
+	}
+	.categories li a {
+		color: #a6a6a6;
+	}
+	.categories li.active a {
+
+		color: #737373;
+	}
+	.content {
+		padding-top: 150px;
+	}
+
+	.input-group 
+	{
+		margin-left: auto;
+	    margin-right: auto;
+	    width: 250px;
+	    padding-top: 10px;
+	}
+
+	.fileUpload {
+		background-color:#599bb3;
+		-moz-border-radius:8px;
+		-webkit-border-radius:8px;
+		border-radius:8px;
+		cursor:pointer;
+		color:#ffffff;
+		font-family: 'Open Sans', sans-serif;
+		font-size: 18px;
+		text-decoration:none;
+		margin-left: auto;
+	    margin-right: auto;
+	    width: 250px;
+		text-align: center;
+		padding: 13px 32px;
+	}
+
+	.fileUpload:hover {
+		background-color:#408c99;
+		text-decoration: none;
+		color: white;
+	}
+
+	.fileUpload input.upload {
+		position: absolute;
+		top: 0;
+		right: 0;
+		font-size: 30px;
+		cursor: pointer;
+		opacity: 0;
+		width: 250px
+	}
+
+	.form-control {
+		/*border-top-left-radius: 10px !important;
+		border-top-right-radius: 10px !important;
+		border-bottom-right-radius: 10px !important;
+		border-bottom-left-radius: 10px !important;*/
+		border-radius: 5px !important;
+		font-family: 'Open Sans', sans-serif;
+	}
+
+	.myButton {
+		background-color:#599bb3;
+		-moz-border-radius:8px;
+		-webkit-border-radius:8px;
+		border-radius:8px;
+		display:inline-block;
+		cursor:pointer;
+		color:#ffffff;
+		font-family: 'Open Sans', sans-serif;
+		font-size: 18px;
+		padding: 13px 32px;
+		text-decoration:none;
+		width: 250px;
+		text-align: center;
+		margin-bottom: 30px;
+	}
+	.myButton:hover {
+		background-color:#408c99;
+		text-decoration: none;
+		color: white;
+	}
+
+	#origprice, #price {
+		width: 125px;
+		font-size: 14px;
+	}
+
+	</style>
+</head>
+<body>
+	<div class="stickyheader">
+		<div class="logo-background"></div>
+		<div class="logo">GroupBuy</div>
+		<ul class="categories">
+			<li><a href="items.html">Listings</a></li>
+			<!-- <li class="active"><a href="#">Add</a></li> -->
+			<li><a href="profile.html">My Profile</a></li>
+			<!-- <li><a href="manage.html">Manage</a></li> -->
+		</ul>
+	</div>
+	<div class="content">
+		<div class="fileUpload input-group">
+			<input id="imgup" type="text" class="form-control" placeholder="Image Link">
+    		<!-- <span>Select a photo</span>
+    		<input id="imgup" type="file" class="upload"/> -->
+		</div>
+		<!-- <button type="button" class="btn btn-default navbar-btn">Sign in</button> -->
+		<div class="input-group input-group-lg select">
+		  <input id="name" type="text" class="form-control" placeholder="Item Name">
+		</div>
+		<div class="input-group input-group-lg select">
+		  <input id="desc" type="text" class="form-control" placeholder="Short description">
+		</div>
+		<div class="input-group input-group-lg select">
+		  <input id="origprice" type="text" class="price form-control" placeholder="Original Price">
+		  <input id="price" type="text" class="price form-control" placeholder="Bulk Price">
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">
+        		<input id="check" type="checkbox">
+      		</span>
+			<input id="minnum" type="text" class="form-control" placeholder="Min # of Buyers">
+      </div><!-- /btn-group -->
+		<div class="input-group input-group-lg select">
+		  <a class="myButton">Submit my listing!</a>
+		</div>
+	</div>
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="js/jquery.cookie.js"></script>
+		<script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+
+			// $('#checked').click(function () {
+   //  			$("#txtAge").toggle(this.checked);
+			// });
+			$(".myButton").click(submit);
+
+			function submit() {
+				//console.log($('#check').prop('checked'));
+
+				var imgsrc = $("#imgup").val();
+				// placeholder for now
+				imgsrc = "http://allaboutuarts.ca/wp-content/uploads/2012/07/placeholder.jpg";
+				var name = $("#name").val();
+				var desc = $("#desc").val();
+				var origprice = $("#origprice").val();
+				var price = $("#price").val();
+				var check = $('#check').prop('checked');
+				if (check === true)
+					var minnum = $('#minnum').val();
+				else
+					var minnum = 0;
+
+				var unfilled = 0;
+
+				// Check for invalid input
+				$(".content").find(':input[type=text]').each(function(i) {
+					//console.log($(this).val());
+					if( $(this).val() === "")
+						unfilled++;
+				});
+
+				if( check === false )
+					unfilled--;
+
+				//console.log(unfilled);
+
+				if (unfilled > 0)
+				{
+					alert("You have not filled in all the required fields. Please go back and make sure all fields are filled!");
+				} else
+				{
+					if( (check === true) && (minnum == 0))
+					{
+						alert("Please enter a number > 0 for the minimum # of buyers.");
+					}
+					else
+
+					if( (origprice < 0) || (price < 0 ) || (minnum < 0) )
+					{
+						alert("You cannot have negative numbers as prices or buyers!");
+					}
+					else
+
+					if( isNaN(origprice) || isNaN(price) || isNaN(minnum) )
+					{
+						alert("Please enter only numbers for the prices and minimum amount of buyers.");
+					}
+					else
+					{
+
+						var JSONinfo = {}
+
+						JSONinfo["check"] = check;
+						JSONinfo["name"] = name;
+						JSONinfo["desc"] = desc;
+						JSONinfo["origprice"] = origprice;
+						JSONinfo["price"] = price;
+						JSONinfo["imgsrc"] = imgsrc;
+						JSONinfo["minnum"] = minnum;
+						JSONinfo["seller"] = "Edward T. Hung";
+
+						var date = new Date();
+						date.setTime(date.getTime() + (5 * 60 * 1000));
+
+						$.cookie("newitem", JSON.stringify(JSONinfo), { expires: date } );
+
+						window.location.href = "http://107.170.250.75/CSE170/frontend/items.html";
+					}
+
+				}
+				//alert( $.cookie("listinginfo") );
+				//console.log(JSON.stringify(JSONinfo));
+			}
+			
+		</script>
+	</body>
+	</html>

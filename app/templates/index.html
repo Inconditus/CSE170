@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Group buy</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+	<style>
+	body {
+		background: url(homebg.jpg) no-repeat center center fixed; 
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+
+		font-family: 'Open Sans', sans-serif !important;
+	} 
+	.content {
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		margin: auto;
+		position: absolute;
+		height: 280px;
+		width: 340px;
+	}
+	.header {
+		/*margin: 120px auto 0 auto;*/
+		margin: 0 auto;
+		width: 300px;
+		text-align:center;
+	}
+	.logo {
+		font-family: 'Lobster';
+		font-size: 40px;
+		color: white;
+		text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+	}
+	.desc {
+		padding-top: 30px;
+		color:rgba(255,255,255,0.9);
+		font-weight:300;
+		font-size:15px;
+	}
+	.footer {
+		margin-top: 60px;
+		width: 100%;
+	}
+	.menu {
+		width: 250px;
+		margin: 0 auto;
+		text-align:center;
+	}
+	.form-reg {
+		display: none;
+		width: 100%;
+		position: relative;
+	}
+	.form-control {
+		padding-left: 30px;
+		background: transparent;
+		color: white;
+		width: 100%;
+	}
+	/* form glow */
+	textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {   
+		border-color: rgba(171, 104, 239, 0.8);
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(171, 104, 239, 0.6);
+		outline: 0 none;
+	}
+	.form-control + .glyphicon {
+		position: relative;
+		color: green;
+		left: 0;
+		padding: 8px 27px;
+	}
+
+	.btn-outline {
+		color: white;
+		background-color: transparent;
+		border-color: white;
+	}
+	.btn-outline:hover {
+		background-color:white;
+		color: #3e4e67;
+	}
+	.btn-login, .btn-register {
+		display: block;
+		/*margin-top: 30px;*/
+		font-weight:300;
+	}
+
+	.btn-back {
+		display: none;
+		font-weight: 300;
+	}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="content">
+			<div class="header">
+				<div class="logo">GroupBuy</div>
+				<div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, minus, obcaecati minima delectus fugiat doloribus.
+				</div>
+			</div>
+			<div class="footer">
+				<div class="menu">
+					<form class="form-reg">
+						<input type="text" placeholder="Email" class="form-control" />
+						<br />
+						<!-- Icons don't work :(  -->
+						<!-- <span class="glyphicon glyphicon-user"></span>  -->
+						<input type="password" placeholder="Password" class="form-control" />
+						<!-- <span class="glyphicon glyphicon-lock"></span> -->
+					</form>
+					<br>
+					<a href="#" class="btn btn-register btn-lg btn-outline">Sign Up</a>
+					<br>
+					<a href="#" class="btn btn-login btn-lg btn-outline">Sign In</a>
+					
+					<a href="#" class="btn btn-back btn-lg btn-outline">Back</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="http://code.jquery.com/jquery.js"></script>
+	<script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
+	<script>
+	var signupclicked = false;
+	var signinclicked = false;
+	$(".btn-register").click(function(evt) {
+		// link to next page
+		console.log("registration button clicked");
+		//remove the sign in button
+		$(".btn-login").animate({
+			opacity: 0.0
+		}, 100, function() 
+		{ 
+			$(".btn-login").css("display", "none");
+		});
+		//add the registration form
+		$(".form-reg").slideDown("fast");
+		//color the current button
+		$(".btn-register").animate({
+			backgroundColor: 'white',
+			color: '#3e4e67'
+		});
+
+		$(".btn-back").css("display","block");
+
+		//$(".btn-register").before("<br>");
+
+		if (signupclicked === true)
+		{
+			var jqxhr = $.post( "/end/signup", function(data) {
+			  if ( data.result === "success") {
+			  	window.location.href = "items.html";
+			  }
+			  else {
+			  	alert("Failed to signup. Email in use! Pick another. ");
+			  }
+			});
+
+			// .done(function() {
+			// 	// When done, want to redirect to listings page while logged in
+			//     window.location.href = "items.html";
+			// })
+			// .fail(function() {
+			//     alert("Failed to signup. Email in use! Pick another. ");
+			// });
+			//Request body parameters
+			//window.location.href = "http://107.170.250.75/CSE170/frontend/items.html";
+		}
+		signupclicked = true;
+		evt.preventDefault;
+	});
+
+	$(".btn-back").click(function(evt) {
+		evt.preventDefault;
+
+		// Reset back to original non clicked settings
+		signupclicked = false;
+		signinclicked = false;
+
+		$(".form-reg").slideUp("fast");
+		$(".btn-login").animate({
+			opacity: 100
+		}, 100, function() 
+		{ 
+			$(".btn-login").css("display", "block");
+		});
+
+		$(".btn-register").show();
+		$(".btn-login").show();
+
+		$(".btn-register").css({
+			color: 'white',
+			backgroundColor: 'transparent'
+			// border-color: 'white'
+		});
+
+		$(".btn-login").css({
+			color: 'white',
+			backgroundColor: 'transparent'
+			// border-color: 'white'
+		});
+
+		$(this).hide();
+
+		if ($(this).prev().is("br"))
+		{
+			$(".btn-back").prev().remove();
+			$(".form-reg").after("<br>");
+			//console.log($(".btn-back").prev());
+
+		}
+	});
+
+	$(".btn-login").click(function(evt) {
+		evt.preventDefault;
+		console.log("login button clicked");
+		//remove the sign in button
+		// $(".btn-register").delay(10).animate({
+		// 	opacity: 0,
+		// 	height: 0,
+		// 	margin: 0,
+		// 	padding: 0
+		// }, 50, function() 
+		// { 
+		// 	$(".btn-register").css("display", "none");
+		// });
+
+		$(".btn-register").css("display", "none");
+		//add the login form
+		$(".form-reg").slideDown();
+
+		//animate color btn
+		$(".btn-login").animate({
+			backgroundColor: 'white',
+			color: '#3e4e67'
+		});
+
+		if (signinclicked === false)
+			$(".btn-back").before("<br>");
+
+		$(".btn-back").css("display","block");
+		//remove the extra <br> above sign in button
+		$(".form-reg").next('br').remove();
+		if (signinclicked === true)
+		{
+			var jqxhr = $.post( "/backend/login", function(data) {
+			  if ( data.result === "success") {
+			  	window.location.href = "items.html";
+			  }
+			  else {
+			  	alert("Failed to Signin. Incorrect email or password. ");
+			  }
+			});
+
+			// .done(function() {
+			// 	// When done, want to redirect to listings page while logged in
+			//     window.location.href = "items.html";
+			// })
+			// .fail(function() {
+			//     alert("Failed to Signin. Incorrect email or password. ");
+			// });
+			//Request body parameters
+			//window.location.href = "http://107.170.250.75/CSE170/frontend/items.html";
+		}
+		signinclicked = true;
+		evt.preventDefault;
+
+	});
+
+	</script>
+</body>
+</html>

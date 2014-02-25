@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Group buy</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+	<style>
+	body {
+		background: #f0f2f5;
+		font-family: 'Open Sans', sans-serif;
+	}
+	.stickyheader {
+		position:fixed;
+		width: 100%;
+		z-index: 9999;
+	}
+	.logo-background {
+		position: absolute;
+		height: 60px;
+		width: 100%;
+		background-image: url(staticheader.jpg);
+		z-index: 5;
+		opacity: 0.9;
+	}
+	.logo {
+		position: absolute;
+		text-align: center;
+		width: 100%;
+		z-index: 10;
+		color:white;
+		font-family: 'Lobster';
+		font-size: 23px;
+		padding-top:10px;
+		text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+	}
+	.categories { 
+		position: fixed;
+		z-index: 10;
+		margin-top: 60px;
+		text-align: center;
+		padding:5px;
+		display:inline-block;
+		background: #fcfcfd;
+		width: 100%;
+	}
+	.categories li {
+		display: inline-block;
+		padding: 3px 10px;
+		list-style-type: none;
+	}
+	.categories li.active {
+		border: 1px solid rgba(0,0,0,0.1);
+		border-radius: 4px;
+	}
+	.categories li a {
+		color: #a6a6a6;
+	}
+	.categories li.active a {
+
+		color: #737373;
+	}
+	.content {
+		padding-top: 100px;
+	}
+
+	.input-group 
+	{
+		margin-left: auto;
+	    margin-right: auto;
+	    width: 250px;
+	    padding-top: 10px;
+	}
+
+	.img-responsive {
+		width: 200px;
+	}
+
+	.form-control {
+		/*border-top-left-radius: 10px !important;
+		border-top-right-radius: 10px !important;
+		border-bottom-right-radius: 10px !important;
+		border-bottom-left-radius: 10px !important;*/
+		border-radius: 5px !important;
+		font-family: 'Open Sans', sans-serif;
+	}
+
+	.labels {
+		font-weight: bold;
+	}
+
+	.myButton {
+		background-color:#599bb3;
+		-moz-border-radius:8px;
+		-webkit-border-radius:8px;
+		border-radius:8px;
+		display:inline-block;
+		cursor:pointer;
+		color:#ffffff;
+		font-family: 'Open Sans', sans-serif;
+		font-size: 18px;
+		padding: 13px 32px;
+		text-decoration:none;
+		width: 250px;
+		text-align: center;
+	}
+	.myButton:hover {
+		background-color:#408c99;
+		text-decoration: none;
+		color: white;
+	}
+
+	.name, .header, .price {
+		text-align: center;
+	}
+
+	.nav-pills li a{
+		padding: 10px 35px;
+	}
+
+	#seller {
+		color: #599bb3;
+	}
+
+	hr {
+		color: #599bb3;
+		background-color: #599bb3;
+		height: 5px;
+	}
+
+	</style>
+</head>
+<body>
+	<div class="stickyheader">
+		<div class="logo-background"></div>
+		<div class="logo">GroupBuy</div>
+		<ul class="categories">
+			<li><a href="items.html">Listings</a></li>
+			<!-- <li><a href="add.html">Add</a></li> -->
+			<li><a href="profile.html">My Profile</a></li>
+			<!-- <li class="active"><a href="manage.html">Manage</a></li> -->
+		</ul>
+	</div>
+
+<div ng-app="myApp">
+	<div>
+	<div class="content">
+		<h3 class="header">Current inventory</h3>
+		<hr>
+<!-- 		<div class="item">
+			<div class="name">Julian Pie</div>
+			<div class="desc">Delicious Pie! Anyone wants some?!</div>
+			<span class="seller">Bob the Builder</span>
+			<img class="img-responsive" src="http://theleftcoast.files.wordpress.com/2008/10/img_3546.jpg">
+			<div class="btn-itembar price">$8</div> -->
+		</div>
+	</div>
+	<br>
+	</div>
+	</div>
+</div>	
+
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+<script type="text/javascript" src="js/itemCtrl.js"></script>
+<script src="js/jquery.cookie.js"></script>
+	<script type="text/javascript">
+		$(document).ready( function() {
+			var JSONinfo = $.cookie("manage") ;
+			if(typeof JSONinfo === 'undefined'){
+				$(".content").html("<div class='name'>No items to display! Go buy some!</div>");
+			}
+			else
+			{
+				var JSONobj = JSON.parse(JSONinfo);
+
+				//console.log("loggin manage");
+				//console.log(JSONobj);
+				var count = JSONobj.count;
+
+				var i = 0;
+				for(i = 0; i < count; i++ )
+				{
+					var item = JSONobj["item" + (i+1)];
+
+					$(".content").append("<div class='item'><div class='name'>" + item.name + "</div><img class='img-responsive input-group' src=" + item.imgsrc +"><div class='price'>Buying for $" + item.price + "</div></div><hr>");
+
+					// $(".imgsrc").attr("src", item.imgsrc);
+					// $(".name").html(item.name);
+					// $(".desc").html(item.desc);
+					// $(".price").html(item.price);
+					// $(".seller").html(item.seller);
+				}
+			}
+
+		});
+
+	</script>
+</body>
+</html>
