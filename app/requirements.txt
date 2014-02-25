@@ -1,0 +1,6 @@
+# install by running pip install -r requirements.txt
+# may need sudo or virtualenv
+
+sqlalchemy
+flask
+flask-sqlalchemy
