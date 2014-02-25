@@ -145,7 +145,7 @@
 		});
 		if (signupclicked === true)
 		{
-			var jqxhr = $.post( "/end/signup", function() {
+			var jqxhr = $.post( "/backend/signup", function() {
 			  alert( "success" );
 			})
 
@@ -187,7 +187,7 @@
 		$(".btn-register").next('br').remove();
 		if (signinclicked === true)
 		{
-			var jqxhr = $.post( "/end/login", function() {
+			var jqxhr = $.post( "/backend/login", function() {
 			  alert( "success" );
 			})
 
