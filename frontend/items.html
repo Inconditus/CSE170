@@ -105,6 +105,7 @@
 
 	.name {
 		text-align: center;
+
 	}
 	.origprice {
 		text-decoration: line-through;
@@ -186,7 +187,7 @@
 				<div class="itembar">
 					<div class="btn-itembar price">$8</div>
 					<div class="btn-itembar origprice">$14</div>
-					<div class="btn-itembar btn-buy"><a href="singleitem.html">Buy Now</a></div>
+					<div class="btn-itembar btn-buy"><a href="singleitem.html">More Details</a></div>
 				</div>
 			</div>
 			<br>
@@ -198,7 +199,7 @@
 				<div class="itembar">
 					<div class="btn-itembar price">$250</div>
 					<div class="btn-itembar origprice">$1000</div>
-					<div class="btn-itembar btn-buy">Buy Now</div>
+					<div class="btn-itembar btn-buy">More Details</div>
 				</div>
 			</div>
 			<br>
@@ -210,7 +211,7 @@
 				<div class="itembar">
 					<div class="btn-itembar price">$340</div>
 					<div class="btn-itembar origprice">$500</div>
-					<div class="btn-itembar btn-buy">Buy Now</div>
+					<div class="btn-itembar btn-buy">More Details</div>
 				</div>
 			</div>
 			<br>
@@ -222,7 +223,7 @@
 				<div class="itembar">
 					<div class="btn-itembar price">$2</div>
 					<div class="btn-itembar origprice">$8</div>
-					<div class="btn-itembar btn-buy">Buy Now</div>
+					<div class="btn-itembar btn-buy">More Details</div>
 				</div>
 			</div>
 			<br>
@@ -241,7 +242,7 @@
 			var JSONinfo = $.cookie("newitem") ;
 			var JSONobj = JSON.parse(JSONinfo);
 
-			$(".content").prepend("<div class='item'><div class='name'>" + JSONobj.name + "</div><div class='desc'>" + JSONobj.desc + "</div><img class='img-responsive' src=" + JSONobj.imgsrc + ">" + "<div class='itembar'><div class='btn-itembar price'>$" + JSONobj.price + "</div><div class='btn-itembar origprice'>$" + JSONobj.origprice + "</div><div class='btn-itembar btn-buy'>Buy Now</div></div></div><br>");
+			$(".content").prepend("<div class='item'><div class='name'>" + JSONobj.name + "</div><div class='desc'>" + JSONobj.desc + "</div><img class='img-responsive' src=" + JSONobj.imgsrc + ">" + "<div class='itembar'><div class='btn-itembar price'>$" + JSONobj.price + "</div><div class='btn-itembar origprice'>$" + JSONobj.origprice + "</div><div class='btn-itembar btn-buy'>More Details</div></div></div><br>");
 
 			$(".item").click( function() {
 
