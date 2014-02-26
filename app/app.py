@@ -82,7 +82,10 @@ def single_item(name=None):
 
 @app.route('/items/')
 def items():
-  return render_template('items.html')
+  listings = Item.query.order_by(Item.id).all()
+# convert list of objects to list of dic
+  list_dicts = [item.__dict__ for item in listings]
+  return render_template('items.html', list_dicts)
 
 @app.route('/profile/')
 def profile():
@@ -127,15 +130,6 @@ def login():
 def logout():
  session.pop('user', None)
  return jsonify( { 'result': 'success' } )
-
-@app.route('/listings', methods=['GET'])
-def get_listings():
- listings = Item.query.order_by(Item.id).all()
- # convert list of objects to list of dicts
- list_dicts = []
- for item in listings:
-   list_dicts.append(item.__dict__)
- return list_dicts 
 
 @app.route('/item/add', methods=['POST'])
 def add_item():
