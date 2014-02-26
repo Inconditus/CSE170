@@ -2,5 +2,5 @@
 # may need sudo or virtualenv
 
 sqlalchemy
-flask
+Flask
 flask-sqlalchemy
