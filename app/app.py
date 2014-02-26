@@ -35,7 +35,7 @@ class Item(db.Model):
     self.user_id = user_id
 
   def __repr__(self):
-    return '<Item %r>' % self.name
+    return '<Item %r:%r>' % (self.id, self.name)
 
 def create_db():
   db.create_all()
