@@ -52,6 +52,10 @@ def create_item(name, description, price, min_buyers, photo, user_id):
   db.session.commit()
   return new_item 
 
+def get_item_by_id(item_id):
+  item = Item.query.filter_by(id=user_id).first()
+  return item
+
 def user_exists(username):
   check = User.query.filter_by(username=username).first() #returns empty if doesn't exist
   return bool(check)
@@ -75,14 +79,17 @@ def is_logged_in():
 def default():
   return render_template('index.html')
 
-@app.route('/singleitem')
 @app.route('/singleitem/<name>')
 def single_item(name=None):
-  return render_template('singleitem.html')
+  if name:
+    item = get_item_by_id(name)
+    return render_template('singleitem.html', item=item.__dict__)
+  else:
+    return "error"
 
 @app.route('/items/')
 def items():
-  listings = Item.query.order_by(Item.id).all()
+  listings = Item.query.order_by(Item.id.desc()).all()
 # convert list of objects to list of dic
   list_dicts = [item.__dict__ for item in listings]
   return render_template('items.html', listings=list_dicts)

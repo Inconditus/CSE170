@@ -40,7 +40,20 @@
 				</div>
 
 			<!-- </div> -->
-			<div class="item">
+      {% for item in listings %}
+      <div class="item">
+        <div class="name">{{item.name}}</div>
+        <div class="desc">{{item.description}}</div>
+        <span class="seller">Bob the Builder</span>
+        <img class="img-responsive" src="{{photo}}" />
+        <div class="itembar">
+          <div class="btn-itembar price">{{item.price}}</div>
+          <div class="btn-itembar origprice">$15</div>
+          <div class="btn-itembar btn-buy"><a href="/singleitem/{{id}}">Details</a></div>
+        </div>
+      </div>
+      {% endfor %}
+<!--			<div class="item">
 				<div class="name">Julian Pie</div>
 				<div class="desc">Delicious Pie! Anyone wants some?!</div>
 				<span class="seller">Bob the Builder</span>
@@ -86,7 +99,7 @@
 					<div class="btn-itembar origprice">$8</div>
 					<div class="btn-itembar btn-buy">More Details</div>
 				</div>
-			</div>
+			</div>-->
 			<br>
 		</div>
 		</div>
