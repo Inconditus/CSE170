@@ -32,7 +32,7 @@ $(document).ready( function() {
 
 				console.log(JSON.stringify(JSONinfo));
 
-				window.location.href = "http://107.170.250.75/CSE170/frontend/singleitem.html";
+				window.location.href = "/singleitem";
 				
 			});
 
@@ -68,7 +68,7 @@ $(document).ready( function() {
 
 		console.log(JSON.stringify(JSONinfo));
 
-		window.location.href = "http://107.170.250.75/CSE170/frontend/singleitem.html";
+		window.location.href = "/singleitem";
 		
 	});
 

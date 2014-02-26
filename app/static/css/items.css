@@ -130,6 +130,7 @@
   	 	margin-left: auto;
  	 	height: 200px;
  		max-width: 100%;
+        border: 1em solid white;
 	}
 
 	.stickyheader-margin {
