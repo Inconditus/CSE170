@@ -88,6 +88,14 @@ def items():
 def profile():
   return render_template('profile.html')
 
+@app.route('/add/')
+def add():
+  return render_template('add.html')
+
+@app.route('/manage/')
+def manage():
+  return render_template('manage.html')
+
 # API Routings
 
 @app.route('/signup', methods=['POST'])
