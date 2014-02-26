@@ -131,7 +131,11 @@ def logout():
 @app.route('/listings', methods=['GET'])
 def get_listings():
  listings = Item.query.order_by(Item.id).all()
- return listings
+ # convert list of objects to list of dicts
+ list_dicts = []
+ for item in listings:
+   list_dicts.append(item.__dict__)
+ return list_dicts 
 
 @app.route('/item/add', methods=['POST'])
 def add_item():
