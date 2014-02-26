@@ -85,7 +85,7 @@ def items():
   listings = Item.query.order_by(Item.id).all()
 # convert list of objects to list of dic
   list_dicts = [item.__dict__ for item in listings]
-  return render_template('items.html', list_dicts)
+  return render_template('items.html', listings=list_dicts)
 
 @app.route('/profile/')
 def profile():
