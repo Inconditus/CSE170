@@ -6,6 +6,7 @@ To-do list:
 		- android home screen not full
 		- link logo to nearby page
 	- put css into separate files
+    - Abstract out CSS
 	- github private -> public
 	- items
 		- make header static
