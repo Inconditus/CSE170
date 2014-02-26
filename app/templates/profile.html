@@ -68,28 +68,7 @@
 		<script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
 		<script src="{{url_for('static', filename='js/jquery.cookie.js')}}"></script>
 		<script src="{{url_for('static', filename='js/bootstrap.js')}}"></script>
-		<script type="text/javascript">
-		$(document).ready( function() {
-			var JSONinfo = $.cookie("user") ;
-			var JSONobj = JSON.parse(JSONinfo);
+		<script src="{{url_for('static', filename='js/profile.js')}}"></script>
 
-			$(".name").html(JSONobj.user);
-
-			console.log(JSONobj.user);
-
-			$('.reviewtab a').click(function (e) {
-				e.preventDefault()
-			  	$('#myTab a[href="#reviews"]').tab('show')
-			});
-
-			$('.historytab a').click(function (e) {
-				e.preventDefault()
-			  	$('#myTab a[href="#history"]').tab('show')
-			});
-
-
-		});
-
-	</script>
 	</body>
 	</html>
