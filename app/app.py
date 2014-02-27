@@ -140,8 +140,8 @@ def logout():
 
 @app.route('/item/add', methods=['POST'])
 def add_item():
-  if not is_logged_in():
-    return jsonify( {'error': 'Not logged in' } )
+  #if not is_logged_in():
+  #  return jsonify( {'error': 'Not logged in' } )
   else:
     name = request.form['name']
     description = request.form['description']
