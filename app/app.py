@@ -142,15 +142,15 @@ def logout():
 def add_item():
   #if not is_logged_in():
   #  return jsonify( {'error': 'Not logged in' } )
-  else:
-    name = request.form['name']
-    description = request.form['description']
-    price = request.form['price']
-    min_buyers = request.form['min_buyers']
-    # TODO create a method that uploads the image to the server or imgur
-    photo = request.form['photo']
-    create_item(name, description, price, min_buyers, photo, session['user'])
-    return jsonify({'result': 'success'})
+  # else:
+  name = request.form['name']
+  description = request.form['description']
+  price = request.form['price']
+  min_buyers = request.form['min_buyers']
+  # TODO create a method that uploads the image to the server or imgur
+  photo = request.form['photo']
+  create_item(name, description, price, min_buyers, photo, session['user'])
+  return jsonify({'result': 'success'})
 
 if __name__ == '__main__':
   app.secret_key= '(nj32*H23i32h32bw39F(U&WBERHYBFR'
