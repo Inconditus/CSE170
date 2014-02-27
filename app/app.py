@@ -130,6 +130,7 @@ def login():
   account = verify_account(username, password)
   if bool(account):
     session['user'] = account.id
+    return jsonify( {'result': 'success' } )
   else:
     logout()
     return jsonify( { 'error' : 'Invalid username or password.' } )

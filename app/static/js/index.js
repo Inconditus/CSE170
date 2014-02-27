@@ -24,9 +24,9 @@ var signinclicked = false;
 
 		if (signupclicked === true)
 		{
-			var jqxhr = $.post( "/end/signup", function(data) {
+			var jqxhr = $.post( "/signup", {username: document.getElementById("Email").value, password: document.getElementById("Password").value }, function(data) {
 			  if ( data.result === "success") {
-			  	window.location.href = "items.html";
+			  	window.location.href = "/items";
 			  }
 			  else {
 			  	alert("Failed to signup. Email in use! Pick another. ");
@@ -120,9 +120,9 @@ var signinclicked = false;
 		$(".form-reg").next('br').remove();
 		if (signinclicked === true)
 		{
-			var jqxhr = $.post( "/backend/login", function(data) {
+			var jqxhr = $.post( "/login", {username: document.getElementById("Email").value, password: document.getElementById("Password").value }, function(data) {
 			  if ( data.result === "success") {
-			  	window.location.href = "items.html";
+			  	window.location.href = "/items";
 			  }
 			  else {
 			  	alert("Failed to Signin. Incorrect email or password. ");
