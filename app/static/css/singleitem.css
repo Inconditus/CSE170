@@ -11,7 +11,7 @@ body {
 	position: absolute;
 	height: 60px;
 	width: 100%;
-	background-image: url(staticheader.jpg);
+	background-image: url(../images/staticheader.jpg);
 	z-index: 5;
 	opacity: 0.9;
 }
@@ -62,6 +62,15 @@ body {
     margin-right: auto;
     width: 250px;
     padding-top: 10px;
+}
+.img-responsive {
+	position: relative;
+ 	display: block;
+   	margin-right: auto;
+   	margin-left: auto;
+  	height: 200px;
+ 	max-width: 100%;
+    /*border: 1em solid white;*/
 }
 
 .form-control {
