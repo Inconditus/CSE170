@@ -56,6 +56,15 @@ body {
 	padding-top: 100px;
 }
 
+.details a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.header {
+	margin-bottom: 20px; 
+}
+
 .input-group 
 {
 	margin-left: auto;
@@ -65,7 +74,21 @@ body {
 }
 
 .img-responsive {
-	width: 200px;
+	height: 100px;
+	max-width: 100%;
+	float: left;
+	margin-right: 15px;
+}
+
+.item {
+	border: 2.5px solid #599bb3;
+	border-radius: 10px;
+	height: 115px;
+	margin: 10px 20px;
+	padding: 5px 5px;
+	margin-bottom: 20px;
+	background-color: #599bb3;
+	color: white;
 }
 
 .form-control {
@@ -102,8 +125,12 @@ body {
 	color: white;
 }
 
-.name, .header, .price {
+.header {
 	text-align: center;
+}
+
+.name, .desc, .price, .origprice {
+	float: left;
 }
 
 .nav-pills li a{
