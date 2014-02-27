@@ -11,3 +11,20 @@ $(".add").click( function() {
 $(".manage").click( function() {
 	window.location.href = "/manage/";
 });
+
+$("#search").keyup(function(){
+    var filter = $(this).val();
+
+    // This is the word to search for
+    var searchterm = $("#search").val().toLowerCase();
+    $(".item").each(function(){
+
+       // If not contain, fade out
+       var item = $(this).children(".name").html().toLowerCase();
+		if( item.indexOf(searchterm) < 0 )
+			$(this).fadeOut();
+        else {
+            $(this).show();
+        }
+    });
+});
