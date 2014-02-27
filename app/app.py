@@ -21,14 +21,16 @@ class Item(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.Integer)
   description = db.Column(db.String)
+  origprice = db.Column(db.String)
   price = db.Column(db.String)
   min_buyers = db.Column(db.Integer)
   photo = db.Column(db.String) # make sure this is a url
   user_id = db.Column(db.Integer) # relationships are hard 
 
-  def __init__(self, name, description, price, min_buyers, photo, user_id):
+  def __init__(self, name, description, origprice, price, min_buyers, photo, user_id):
     self.name = name
     self.description = description
+    self.origprice = orgprice
     self.price = price
     self.min_buyers = min_buyers
     self.photo = photo
@@ -46,8 +48,8 @@ def create_user(username, password):
   db.session.commit()
   return new_user
 
-def create_item(name, description, price, min_buyers, photo, user_id):
-  new_item = Item(name, description, price, min_buyers, photo, user_id)
+def create_item(name, description, origprice, price, min_buyers, photo, user_id):
+  new_item = Item(name, description, origprice, price, min_buyers, photo, user_id)
   db.session.add(new_item)
   db.session.commit()
   print "commit"
@@ -147,6 +149,7 @@ def add_item():
   else:
     name = request.form['name']
     description = request.form['desc']
+    price = request.form['origprice']
     price = request.form['price']
     min_buyers = request.form['minnum']
 
@@ -155,7 +158,7 @@ def add_item():
 
   # TODO add original price
 
-  create_item(name, description, price, min_buyers, photo, session['user'])
+  create_item(name, description, origprice, price, min_buyers, photo, session['user'])
 
   return jsonify({'result': 'success'})
 
