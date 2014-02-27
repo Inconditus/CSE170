@@ -1,5 +1,9 @@
 //whole file isnt needed 
-
+// Calculate the margin of the image so that it can line up to it
+$(document).ready( function() {
+	var width = $(".img-responsive").width();
+	$(".input-group").css("width", width);
+});
 // $(document).ready( function() {
 // 			var JSONinfo = $.cookie("listinginfo") ;
 // 			var JSONobj = JSON.parse(JSONinfo);
