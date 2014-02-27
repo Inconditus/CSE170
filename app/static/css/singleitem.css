@@ -1,6 +1,7 @@
 body {
 	background: #f0f2f5;
 	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
 }
 .stickyheader {
 	position:fixed;
@@ -31,7 +32,7 @@ body {
 	z-index: 10;
 	margin-top: 60px;
 	text-align: center;
-	padding:5px;
+	padding:9px;
 	display:inline-block;
 	background: #fcfcfd;
 	width: 100%;
@@ -109,6 +110,7 @@ body {
 
 .name {
 	text-align: center;
+	font-weight: 300;
 }
 
 .nav-pills li a{

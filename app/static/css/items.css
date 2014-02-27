@@ -1,6 +1,7 @@
 	body {
 		background: #f0f2f5;
 		font-family: 'Open Sans', sans-serif;
+		font-weight: 300;
 	}
 	.stickyheader {
 		position:fixed;
@@ -95,7 +96,7 @@
 
 	.name {
 		text-align: center;
-		font-weight: bold;
+		font-weight: 300;
 		font-size: 20px;
 	}
 	.origprice {
