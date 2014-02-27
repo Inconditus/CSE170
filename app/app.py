@@ -67,12 +67,11 @@ def get_user_by_id(user_id):
 
 def verify_account(username, password):
   check = User.query.filter_by(username=username).filter_by(password=password).first()
+  print "check"  + check
   return check
 
 def is_logged_in():
-  if 'user' in session:
-    return True
-  return False
+  return 'user' in session
 
 # Templating
 
@@ -90,6 +89,8 @@ def single_item(name=None):
 
 @app.route('/items/')
 def items():
+  if not is_logged_in(): return redirect('/', code=302)
+  print "yolo"
   listings = Item.query.order_by(Item.id.desc()).all()
 # convert list of objects to list of dic
   list_dicts = [item.__dict__ for item in listings]
@@ -142,9 +143,9 @@ def logout():
 
 @app.route('/item/add', methods=['POST'])
 def add_item():
-  #if not is_logged_in():
-  #  return jsonify( {'error': 'Not logged in' } )
-  # else:
+  if not is_logged_in():
+    return jsonify( {'error': 'Not logged in' } )
+  else:
   name = request.form['name']
   description = request.form['desc']
   price = request.form['price']
