@@ -56,7 +56,7 @@ def create_item(name, description, origprice, price, min_buyers, photo, user_id)
   return new_item 
 
 def get_item_by_id(item_id):
-  item = Item.query.filter_by(id=user_id).first()
+  item = Item.query.filter_by(id=item_id).first()
   return item
 
 def user_exists(username):
