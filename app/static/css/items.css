@@ -117,13 +117,42 @@
 		float: right;
 		font-weight: 400;
 	}
+
+	/*
 	.btn-buy a {
 		color: white;
-}
+	}
 	.btn-buy a:hover{
 		text-decoration: none;
 		color: white;
+	}*/
+
+	.btn-buy a {
+		padding: 8px 15px;
+		cursor: pointer;
+		border: 1px solid #033c73;
+		border-radius: 4px;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		color: #ffffff;
+		background-color: #033c73;
+		background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#04519b), color-stop(60%, #033c73), to(#02325f));
+		background-image: -webkit-linear-gradient(#04519b, #033c73 60%, #02325f);
+		background-image: -moz-linear-gradient(top, #04519b, #033c73 60%, #02325f);
+		background-image: linear-gradient(#04519b, #033c73 60%, #02325f);
+		background-repeat: no-repeat;
+		border-bottom: 1px solid #022241;
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff04519b', endColorstr='#ff02325f', GradientType=0);
 	}
+	.btn-buy a:hover {
+		background-image: none;
+		color: #ffffff;
+	}
+
+
+
+
+
 	.img-responsive {
 		position: relative;
   	 	display: block;
