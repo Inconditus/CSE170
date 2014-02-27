@@ -50,6 +50,7 @@ def create_item(name, description, price, min_buyers, photo, user_id):
   new_item = Item(name, description, price, min_buyers, photo, user_id)
   db.session.add(new_item)
   db.session.commit()
+  print "commit"
   return new_item 
 
 def get_item_by_id(item_id):
@@ -144,12 +145,17 @@ def add_item():
   #  return jsonify( {'error': 'Not logged in' } )
   # else:
   name = request.form['name']
-  description = request.form['description']
+  description = request.form['desc']
   price = request.form['price']
-  min_buyers = request.form['min_buyers']
+  min_buyers = request.form['minnum']
+
   # TODO create a method that uploads the image to the server or imgur
-  photo = request.form['photo']
+  photo = request.form['imgsrc']
+
+  # TODO add original price
+
   create_item(name, description, price, min_buyers, photo, session['user'])
+
   return jsonify({'result': 'success'})
 
 if __name__ == '__main__':
