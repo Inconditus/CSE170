@@ -30,7 +30,7 @@ class Item(db.Model):
   def __init__(self, name, description, origprice, price, min_buyers, photo, user_id):
     self.name = name
     self.description = description
-    self.origprice = orgprice
+    self.origprice = origprice
     self.price = price
     self.min_buyers = min_buyers
     self.photo = photo
@@ -149,7 +149,7 @@ def add_item():
   else:
     name = request.form['name']
     description = request.form['desc']
-    price = request.form['origprice']
+    origprice = request.form['origprice']
     price = request.form['price']
     min_buyers = request.form['minnum']
 
