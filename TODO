@@ -5,13 +5,19 @@ To-do list:
 		- sign up animation into css3
 		- android home screen not full
 		- link logo to nearby page
-	- put css into separate files
-    - Abstract out CSS
-	- github private -> public
+
+    DONE Theresa - Abstract out CSS
+    DONE Justin - Abstract out JS
+    DONE Justin - Login/Signup linked
+	DONE Edward - github private -> public
+
+
+
 	- items
-		- make header static
-		- buy now button - outline
-		- Make pictures all the same size
+	DONE Justin - make header static z-index = 99999
+	DONE Theresa - buy now button - outline
+	DONE Edward	- Make pictures all the same size
+
 	- single item
 		- button color match
 		- background outline

@@ -146,13 +146,13 @@ def add_item():
   if not is_logged_in():
     return jsonify( {'error': 'Not logged in' } )
   else:
-  name = request.form['name']
-  description = request.form['desc']
-  price = request.form['price']
-  min_buyers = request.form['minnum']
+    name = request.form['name']
+    description = request.form['desc']
+    price = request.form['price']
+    min_buyers = request.form['minnum']
 
   # TODO create a method that uploads the image to the server or imgur
-  photo = request.form['imgsrc']
+    photo = request.form['imgsrc']
 
   # TODO add original price
 
