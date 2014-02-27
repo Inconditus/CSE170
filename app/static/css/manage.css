@@ -11,7 +11,7 @@ body {
 	position: absolute;
 	height: 60px;
 	width: 100%;
-	background-image: url(staticheader.jpg);
+	background-image: url(../images/staticheader.jpg);
 	z-index: 5;
 	opacity: 0.9;
 }
@@ -31,7 +31,7 @@ body {
 	z-index: 10;
 	margin-top: 60px;
 	text-align: center;
-	padding:5px;
+	padding: 9px;
 	display:inline-block;
 	background: #fcfcfd;
 	width: 100%;
@@ -75,16 +75,20 @@ body {
 
 .img-responsive {
 	height: 100px;
-	max-width: 100%;
+	/*max-width: 100%;
+	min-width: 100px;*/
+	width:100px;
 	float: left;
 	margin-right: 15px;
+	border-radius: 3px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.9);
 }
 
 .item {
 	border: 2.5px solid #599bb3;
 	border-radius: 10px;
 	height: 115px;
-	margin: 10px 20px;
+	margin: 10px 10px;
 	padding: 5px 5px;
 	margin-bottom: 20px;
 	background-color: #599bb3;
