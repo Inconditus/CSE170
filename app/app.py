@@ -67,7 +67,6 @@ def get_user_by_id(user_id):
 
 def verify_account(username, password):
   check = User.query.filter_by(username=username).filter_by(password=password).first()
-  print "check"  + check
   return check
 
 def is_logged_in():
