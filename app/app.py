@@ -185,5 +185,5 @@ def add_item():
 
 if __name__ == '__main__':
   app.secret_key= '(nj32*H23i32h32bw39F(U&WBERHYBFR'
-  app.run(host='0.0.0.0', debug=True)
+  app.run(host='0.0.0.0', port=5001,  debug=True)
 
