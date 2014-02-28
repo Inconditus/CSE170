@@ -119,7 +119,8 @@ def profile():
   if not is_logged_in(): return redirect('/', code=302)
   user_id = session['user']
   items = get_items_by_seller(user_id)
-  return render_template('profile.html', items_sold = items.__dict__)
+  items_dict = [item.__dict__ for item in items]
+  return render_template('profile.html', user_curr_list = items_dict)
 
 @app.route('/add/')
 def add():
