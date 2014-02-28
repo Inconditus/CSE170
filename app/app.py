@@ -7,12 +7,13 @@ db = SQLAlchemy(app)
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=True, default='NULL')
     username = db.Column(db.String(80), unique=True)
     password = db.Column(db.String(120))
 
     def __init__(self, username, password):
         self.username = username
-        self.password= password 
+        self.password = password 
 
     def __repr__(self):
         return '<User %r>' % self.username
@@ -39,6 +40,18 @@ class Item(db.Model):
   def __repr__(self):
     return '<Item %r:%r>' % (self.id, self.name)
 
+class Bought_Item(db.Model):
+  id = db.Column(db.Integer, primary_key=True)
+  item_id = db.Column(db.Integer)
+  user_id = db.Column(db.Integer)
+
+  def __init__(self, item_id, user_id):
+    self.item_id = item_id
+    self.user_id = user_id
+
+  def __repr__(self):
+    return '<Bought_Item %r>' % id
+
 def create_db():
   db.create_all()
 
@@ -58,6 +71,10 @@ def create_item(name, description, origprice, price, min_buyers, photo, user_id)
 def get_item_by_id(item_id):
   item = Item.query.filter_by(id=item_id).first()
   return item
+
+def get_items_by_seller(user_id):
+  items = Item.query.filter_by(user_id=user_id).all()
+  return items
 
 def user_exists(username):
   check = User.query.filter_by(username=username).first() #returns empty if doesn't exist
@@ -99,7 +116,10 @@ def items():
 
 @app.route('/profile/')
 def profile():
-  return render_template('profile.html')
+  if not is_logged_in(): return redirect('/', code=302)
+  user_id = session['user']
+  items = get_items_by_seller(user_id)
+  return render_template('profile.html', items_sold = items.__dict__)
 
 @app.route('/add/')
 def add():
