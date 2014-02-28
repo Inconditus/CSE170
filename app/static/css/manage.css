@@ -1,6 +1,7 @@
 body {
 	background: #f0f2f5;
 	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
 }
 .stickyheader {
 	position:fixed;
@@ -11,7 +12,7 @@ body {
 	position: absolute;
 	height: 60px;
 	width: 100%;
-	background-image: url(staticheader.jpg);
+	background-image: url(../images/staticheader.jpg);
 	z-index: 5;
 	opacity: 0.9;
 }
@@ -31,7 +32,7 @@ body {
 	z-index: 10;
 	margin-top: 60px;
 	text-align: center;
-	padding:5px;
+	padding: 9px;
 	display:inline-block;
 	background: #fcfcfd;
 	width: 100%;
@@ -63,6 +64,7 @@ body {
 
 .header {
 	margin-bottom: 20px; 
+	font-weight: 300;
 }
 
 .input-group 
@@ -75,20 +77,24 @@ body {
 
 .img-responsive {
 	height: 100px;
-	max-width: 100%;
+	/*max-width: 100%;
+	min-width: 100px;*/
+	width:100px;
 	float: left;
 	margin-right: 15px;
+	border-radius: 3px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.9);
 }
 
 .item {
-	border: 2.5px solid #599bb3;
-	border-radius: 10px;
+	/*border: 2.5px solid #599bb3;
+	border-radius: 10px;*/
 	height: 115px;
-	margin: 10px 20px;
+	margin: 10px 10px;
 	padding: 5px 5px;
-	margin-bottom: 20px;
-	background-color: #599bb3;
-	color: white;
+	/*margin-bottom: 20px;*/
+	/*background-color: #599bb3;*/
+	color: black;
 }
 
 .form-control {
@@ -100,37 +106,13 @@ body {
 	font-family: 'Open Sans', sans-serif;
 }
 
-.labels {
-	font-weight: bold;
-}
-
-.myButton {
-	background-color:#599bb3;
-	-moz-border-radius:8px;
-	-webkit-border-radius:8px;
-	border-radius:8px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 18px;
-	padding: 13px 32px;
-	text-decoration:none;
-	width: 250px;
-	text-align: center;
-}
-.myButton:hover {
-	background-color:#408c99;
-	text-decoration: none;
-	color: white;
-}
-
 .header {
 	text-align: center;
 }
 
-.name, .desc, .price, .origprice {
+.name, .desc, .price, .origprice, .seller {
 	float: left;
+	font-size: 14px;
 }
 
 .nav-pills li a{
@@ -142,7 +124,7 @@ body {
 }
 
 hr {
-	color: #599bb3;
-	background-color: #599bb3;
-	height: 5px;
+	background-color: #c4c4c4;
+	height: 1px;
+	margin: 0 10px;
 }

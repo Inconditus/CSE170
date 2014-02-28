@@ -1,77 +1,9 @@
-$(document).ready( function() {
-			var JSONinfo = $.cookie("newitem") ;
-			var JSONobj = JSON.parse(JSONinfo);
-
-			$(".content").prepend("<div class='item'><div class='name'>" + JSONobj.name + "</div><div class='desc'>" + JSONobj.desc + "</div><img class='img-responsive' src=" + JSONobj.imgsrc + ">" + "<div class='itembar'><div class='btn-itembar price'>$" + JSONobj.price + "</div><div class='btn-itembar origprice'>$" + JSONobj.origprice + "</div><div class='btn-itembar btn-buy'>More Details</div></div></div><br>");
-
-			$(".item").click( function() {
-
-				console.log($(this).find(".name").html());
-
-				var imgsrc = $(this).find(".img-responsive").attr("src");
-				var name = $(this).find(".name").html();
-				var desc = $(this).find(".desc").html();
-				var origprice = $(this).find(".origprice").html();
-				var price = $(this).find(".price").html();
-				var seller = $(this).find(".seller").html();
-
-				var JSONinfo = {}
-
-				JSONinfo["name"] = name;
-				JSONinfo["desc"] = desc;
-				JSONinfo["origprice"] = origprice.substr(1);
-				JSONinfo["price"] = price.substr(1);
-				JSONinfo["imgsrc"] = imgsrc;
-				JSONinfo["seller"] = seller;
-
-				// 1 min expiry for cookie
-				// var date = new Date();
-				// date.setTime(date.getTime() + (1 * 60 * 1000));
-
-				$.cookie("listinginfo", JSON.stringify(JSONinfo) );
-
-				console.log(JSON.stringify(JSONinfo));
-
-				window.location.href = "/singleitem";
-				
-			});
-
-			
-		});
-	
-	// After clicking item, send information to a cookie so that the singleitem page can render the cookie
-	$(".item").click( function() {
-
-		console.log($(this).find(".name").html());
-
-		var imgsrc = $(this).find(".img-responsive").attr("src");
-		var name = $(this).find(".name").html();
-		var desc = $(this).find(".desc").html();
-		var origprice = $(this).find(".origprice").html();
-		var price = $(this).find(".price").html();
-		var seller = $(this).find(".seller").html();
-
-		var JSONinfo = {}
-
-		JSONinfo["name"] = name;
-		JSONinfo["desc"] = desc;
-		JSONinfo["origprice"] = origprice.substr(1);
-		JSONinfo["price"] = price.substr(1);
-		JSONinfo["imgsrc"] = imgsrc;
-		JSONinfo["seller"] = seller;
-
-		// 1 min expiry for cookie
-		// var date = new Date();
-		// date.setTime(date.getTime() + (1 * 60 * 1000));
-
-		$.cookie("listinginfo", JSON.stringify(JSONinfo) );
-
-		console.log(JSON.stringify(JSONinfo));
-
-		window.location.href = "/singleitem";
-		
-	});
-
+// //doesnt work, only display info of the last item
+// $(".item").click( function() {
+// 	var id = document.getElementById("url").attributes["href"].value;
+// 	window.location.href = url
+// });
+$(document).ready(function(){
 	$(".add").click( function() {
 		window.location.href = "/add/";
 	});
@@ -79,3 +11,21 @@ $(document).ready( function() {
 	$(".manage").click( function() {
 		window.location.href = "/manage/";
 	});
+
+	$("#search").keyup(function(){
+	    var filter = $(this).val();
+
+	    // This is the word to search for
+	    var searchterm = $("#search").val().toLowerCase();
+	    $(".item").each(function(){
+
+	       // If not contain, fade out
+	       var item = $(this).children(".name").html().toLowerCase();
+			if( item.indexOf(searchterm) < 0 )
+				$(this).fadeOut();
+	        else {
+	            $(this).show();
+	        }
+	    });
+	});
+});

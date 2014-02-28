@@ -1,6 +1,7 @@
 body {
 	background: #f0f2f5;
 	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
 }
 .stickyheader {
 	position:fixed;
@@ -11,7 +12,7 @@ body {
 	position: absolute;
 	height: 60px;
 	width: 100%;
-	background-image: url(staticheader.jpg);
+	background-image: url(../images/staticheader.jpg);
 	z-index: 5;
 	opacity: 0.9;
 }
@@ -31,7 +32,7 @@ body {
 	z-index: 10;
 	margin-top: 60px;
 	text-align: center;
-	padding:5px;
+	padding:9px;
 	display:inline-block;
 	background: #fcfcfd;
 	width: 100%;
@@ -63,6 +64,15 @@ body {
     width: 250px;
     padding-top: 10px;
 }
+.img-responsive {
+	position: relative;
+ 	display: block;
+   	margin-right: auto;
+   	margin-left: auto;
+  	height: 200px;
+ 	/*max-width: 100%;*/
+    /*border: 1em solid white;*/
+}
 
 .form-control {
 	/*border-top-left-radius: 10px !important;
@@ -78,18 +88,19 @@ body {
 }
 
 .myButton {
+	width: 250px;
+	margin-right: auto;
+	margin-left: auto;
 	background-color:#599bb3;
 	-moz-border-radius:8px;
 	-webkit-border-radius:8px;
 	border-radius:8px;
-	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 18px;
 	padding: 13px 32px;
 	text-decoration:none;
-	width: 250px;
 	text-align: center;
 }
 .myButton:hover {
@@ -100,6 +111,7 @@ body {
 
 .name {
 	text-align: center;
+	font-weight: 300;
 }
 
 .nav-pills li a{

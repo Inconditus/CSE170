@@ -1,6 +1,7 @@
 body {
 	background: #f0f2f5;
 	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
 }
 .stickyheader {
 	position:fixed;
@@ -104,8 +105,20 @@ body {
 	color: white;
 }
 
+.nav-tabs > li.active > a{
+	background-color: #408c99;
+	color: white;
+}
+
+.nav-tabs > li.active > a:hover{
+	background-color: #408c99;
+	color: white;
+}
+
+
 .name {
 	text-align: center;
+	font-weight: 300;
 }
 
 .nav-pills li a{
@@ -115,6 +128,8 @@ body {
 .profilepic {
 	margin-bottom: 20px; 
 	border-radius: 200px;
+	height: 200px;
+	width: 200px;
 }
 
 .reviewlist {
@@ -129,7 +144,7 @@ body {
 }
 
 hr {
-	color: #599bb3;
-	background-color: #599bb3;
-	height: 5px;
+	background-color: #c4c4c4;
+	height: 1px;
+	margin: 10px 0px;
 }
