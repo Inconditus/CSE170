@@ -3,6 +3,7 @@
 		font-family: 'Open Sans', sans-serif;
 		font-weight: 300;
 	}
+  a, a:hover, a:focus { text-decoration: none; } 
 	.stickyheader {
 		position:fixed;
 		width: 100%;
@@ -96,9 +97,12 @@
 
 	.name {
 		text-align: center;
+    text-decoration: none;
 		font-weight: 300;
 		font-size: 20px;
+    color: rgba(0,0,0,0.6);
 	}
+
 	.origprice {
 		text-decoration: line-through;
 		font-weight: 300;
@@ -128,7 +132,7 @@
 		color: white;
 	}*/
 
-	.btn-buy a {
+	.btn-buy a.url {
 		padding: 8px 15px;
 		cursor: pointer;
 		border: 1px solid #033c73;

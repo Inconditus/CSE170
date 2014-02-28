@@ -10,7 +10,6 @@
 	<link rel="stylesheet" href="{{url_for('static', filename='css/items.css')}}">
 </head>
 <body>
-
 	<div class="stickyheader">
 		<div class="logo-background"></div>
 		<div class="logo">GroupBuy</div>
@@ -41,17 +40,19 @@
 
 			<!-- </div> -->
       {% for item in listings %}
-      <div class="item">
-        <div class="name">{{item.name}}</div>
-        <div class="desc">{{item.description}}</div>
-        <span class="seller">Bob the Builder</span>
-        <img class="img-responsive" src="{{item.photo}}" />
-        <div class="itembar">
-          <div class="btn-itembar price">${{item.price}}</div>
-          <div class="btn-itembar origprice">${{item.origprice}}</div>
-          <div class="btn-itembar btn-buy"><a id="url" href="/singleitem/{{item.id}}">Details</a></div>
+      <a href="/singleitem/{{item.id}}">
+        <div class="item">
+          <div class="name">{{item.name}}</div>
+          <div class="desc">{{item.description}}</div>
+          <span class="seller">Bob the Builder</span>
+          <img class="img-responsive" src="{{item.photo}}" />
+          <div class="itembar">
+            <div class="btn-itembar price">${{item.price}}</div>
+            <div class="btn-itembar origprice">${{item.origprice}}</div>
+            <div class="btn-itembar btn-buy "><a class="url" href="/singleitem/{{item.id}}">Details</a></div>
+          </div>
         </div>
-      </div>
+      </a>
       {% endfor %}
 			<br>
 		</div>
