@@ -1,4 +1,4 @@
-from flask import Flask, request, session, jsonify, render_template
+from flask import Flask, request, session, jsonify, render_template, redirect
 from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
