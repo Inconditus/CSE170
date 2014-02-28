@@ -23,15 +23,22 @@ var signinclicked = false;
 		//$(".btn-register").before("<br>");
 
 		if (signupclicked === true)
-		{
-			var jqxhr = $.post( "/signup", {username: document.getElementById("Email").value, password: document.getElementById("Password").value }, function(data) {
-			  if ( data.result === "success") {
-			  	window.location.href = "/items";
-			  }
-			  else {
-			  	alert("Failed to signup. Email in use! Pick another. ");
-			  }
-			});
+		{	
+			var email = $("#Email").val();
+			if (! validateEmail(email) ) {
+				alert("Please enter a valid email address!");
+			}
+			else {
+				var jqxhr = $.post( "/signup", {username: document.getElementById("Email").value, password: document.getElementById("Password").value }, function(data) {
+				  if ( data.result === "success") {
+				  	window.location.href = "/items";
+				  }
+				  else {
+				  	alert("Failed to signup. Email in use! Pick another. ");
+				  }
+				});
+
+			}
 
 			// .done(function() {
 			// 	// When done, want to redirect to listings page while logged in
@@ -46,6 +53,11 @@ var signinclicked = false;
 		signupclicked = true;
 		evt.preventDefault;
 	});
+
+	function validateEmail(email) { 
+		var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return re.test(email);
+	} 
 
 	$(".btn-back").click(function(evt) {
 		evt.preventDefault;
@@ -120,14 +132,20 @@ var signinclicked = false;
 		$(".form-reg").next('br').remove();
 		if (signinclicked === true)
 		{
-			var jqxhr = $.post( "/login", {username: document.getElementById("Email").value, password: document.getElementById("Password").value }, function(data) {
-			  if ( data.result === "success") {
-			  	window.location.href = "/items";
-			  }
-			  else {
-			  	alert("Failed to Signin. Incorrect email or password. ");
-			  }
-			});
+			var email = $("#Email").val();
+			if (! validateEmail(email) ) {
+				alert("Please enter a valid email address!");
+			}
+			else {
+				var jqxhr = $.post( "/login", {username: document.getElementById("Email").value, password: document.getElementById("Password").value }, function(data) {
+				  if ( data.result === "success") {
+				  	window.location.href = "/items";
+				  }
+				  else {
+				  	alert("Failed to sign in. Incorrect email or password. ");
+				  }
+				});
+			}
 
 			// .done(function() {
 			// 	// When done, want to redirect to listings page while logged in
