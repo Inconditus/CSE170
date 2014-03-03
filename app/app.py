@@ -91,6 +91,16 @@ def verify_account(username, password):
 def is_logged_in():
   return 'user' in session
 
+def bought_items(user_id):
+# get the user 
+  item_ids = Bought_Item.query.filter_by(user_id=user_id).all()
+  item_dict = [] # list of item dictionaries
+  for each in item_ids:
+    item = Item.query.filter_by(id=each.item_id).first()
+    item_dict.append(item.__dict__)
+  return item_dict # should send to template or something
+
+
 # Templating
 
 @app.route('/')
@@ -128,7 +138,8 @@ def add():
 
 @app.route('/manage/')
 def manage():
-  return render_template('manage.html')
+  item_dict = bought_items(session['user'])
+  return render_template('manage.html', items=item_dict)
 
 # API Routings
 
@@ -193,15 +204,6 @@ def buy_item(item_id=None):
     return "bought item"
   else:
     return "error no item selected"
-
-def bought_items(user_id):
-# get the user 
-  item_ids = Bought_Item.query.filter_by.user_id=user_id.all()
-  item_dict = [] # list of item dictionaries
-  for each in item_ids:
-    item = Item.query.filter_by(id=each.item_id).first()
-    item_dict.append(item.__dict__)
-  return item_dict # should send to template or something
 
 if __name__ == '__main__':
   app.secret_key= '(nj32*H23i32h32bw39F(U&WBERHYBFR'

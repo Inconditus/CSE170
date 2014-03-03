@@ -23,33 +23,22 @@
 	<div class="content">
 		<h3 class="header">Current inventory</h3>
 		<hr>
+    {% for item in items %}
 		<div class="item">
 			<img class="img-responsive" src="https://24.media.tumblr.com/b2977986d23c10bc154a006701c96050/tumblr_n1fs71Bwcy1sg1hjoo1_500.jpg" />
-	        <div class="name">item.name</div>
+	        <div class="name">{{item.name}}</div>
 	        <br>
-	        <div class="desc">item.description</div>
+	        <div class="desc">{{item.description}}</div>
 	        <br>
-        	<span class="seller">Scott Klemmer</span>
+        	<span class="seller">{{item.user_id}}</span>
         	<br>
-			<div class="price">item.price</div>
+			<div class="price">${{item.price}}</div>
 			<br>
-			<div class="origprice">originalprice</div>
+			<div class="origprice">${{originalprice}}</div>
 			<!-- <div class="details"><a href="/singleitem/{{id}}">Click for full listing</a></div> -->
-     	</div>
-     	<hr>
-     	<div class="item">
-			<img class="img-responsive" src="https://31.media.tumblr.com/e00fe40a3aa47f734d5d63f4429a052e/tumblr_n1n7amVf1I1qf25pao1_500.png" />
-	        <div class="name">item.name</div>
-	        <br>
-	        <div class="desc">item.description</div>
-	        <br>
-        	<span class="seller">Will Wheaton</span>
-        	<br>
-			<div class="price">item.price</div>
-			<br>
-			<div class="origprice">originalprice</div>
-			<!-- <div class="details"><a href="/singleitem/{{id}}">Click for full listing</a></div> -->
-     	</div>
+    </div>
+    <hr>
+    {% endfor %} 
 	</div>	
 
 <script src="http://code.jquery.com/jquery.js"></script>
