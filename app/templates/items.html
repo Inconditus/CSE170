@@ -55,7 +55,7 @@
 
 			<!-- </div> -->
       {% for item in listings %}
-      <a href="/singleitem/{{item.id}}">
+      <a class="myButton" href="/singleitem/{{item.id}}">
         <div class="item">
           <div class="name">{{item.name}}</div>
           <div class="desc">{{item.description}}</div>
@@ -84,7 +84,12 @@
 <script>
 $('.myButton').click(function(e) {
   e.preventDefault();
+    console.log("ga");
     ga("send", "event", "singleitem", "click");
+    setTimeout(function() { // now wait 300 milliseconds
+      window.open(href,(!target?"_self":target)); // ...and open the link as usual
+    },300);
+
 });
 </script>
 
