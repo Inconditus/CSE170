@@ -3,14 +3,13 @@ To-do list:
 	- home page 
 		- fix max-width
 		- sign up animation into css3
-		- android home screen not full
-		- link logo to nearby page
+		- DONE Edward - android home screen not full
+		- Done Edward - link logo to nearby page
 
     DONE Theresa - Abstract out CSS
     DONE Justin - Abstract out JS
     DONE Justin - Login/Signup linked
 	DONE Edward - github private -> public
-
 
 
 	- items
@@ -35,3 +34,8 @@ To-do list:
   - Upload image to imgur or local, return a link.
   - Write tests for everything
   - Add edit profile functionality
+Buy should do something
+Top bar should stay on android
+Refactor the methods to use the @staticmethod decorator.
+
+

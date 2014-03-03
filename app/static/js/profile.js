@@ -18,3 +18,7 @@ $(document).ready( function() {
 
 
 		});
+$(".logo").click( function() {
+      document.location.href = '/items/';
+});
+

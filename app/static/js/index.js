@@ -161,3 +161,7 @@ var signinclicked = false;
 		evt.preventDefault;
 
 	});
+  $(".logo").click( function() {
+        document.location.href = '/items/';
+  });
+

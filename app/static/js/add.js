@@ -70,7 +70,7 @@ function submit() {
           $.post('/item/add', JSONinfo).done(function(data) {
               //maybe do something with the data to see if submit worked
               window.location.href = "/items/";
-          });
+              });
           //$.cookie("newitem", JSON.stringify(JSONinfo), { expires: date } );
         }
 
@@ -78,3 +78,7 @@ function submit() {
   //alert( $.cookie("listinginfo") );
   //console.log(JSON.stringify(JSONinfo));
 }
+$(".logo").click( function() {
+    document.location.href = '/items/';
+});
+

@@ -97,3 +97,7 @@ $(document).ready( function() {
 // 				window.location.href = "http://107.170.250.75/CSE170/frontend/profile.html";
 // 			});
 // 		});
+$(".logo").click( function() {
+      document.location.href = '/items/';
+});
+
