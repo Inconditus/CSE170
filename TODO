@@ -28,13 +28,13 @@ DONE Edward	- Make pictures all the same size
   - add https://github.com/maman/JVFloat.js to all boxes
 - Search bar?
 Backend
-- Add foreign keys to item
-- Create new table of purchases
+- Ignored - Add foreign keys to item
+- DONE Edward - Create new table of purchases
 - Upload image to imgur or local, return a link.
 - Write tests for everything
 - Add edit profile functionality
 Misc
-- Buy should do something
+- DONE Edward -  Buy should do something
 - Top bar should stay on android
 
 
