@@ -201,7 +201,7 @@ def buy_item(item_id=None):
     bought_item = Bought_Item(item_id, user_id)
     db.session.add(bought_item)
     db.session.commit()
-    return "bought item"
+    return redirect("/items/", 302)
   else:
     return "error no item selected"
 
