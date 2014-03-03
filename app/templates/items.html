@@ -81,13 +81,8 @@
 <script src="{{url_for('static', filename='js/items.js')}}"></script>
 <script>
 $('.myButton').click(function(e) {
-  e.preventDefault();
     console.log("ga");
     ga("send", "event", "singleitem", "click");
-    setTimeout(function() { // now wait 300 milliseconds
-      window.open(href,(!target?"_self":target)); // ...and open the link as usual
-    },300);
-
 });
 </script>
 
