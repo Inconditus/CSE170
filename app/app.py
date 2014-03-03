@@ -183,6 +183,17 @@ def add_item():
 
   return jsonify({'result': 'success'})
 
+@app.route('/item/buy/<item_id>')
+def buy_item(item_id=None):
+  if item_id:
+    user_id = session['user']
+    bought_item = Bought_Item(item_id, user_id)
+    db.session.add(bought_item)
+    db.session.commit()
+    return "bought item"
+  else:
+    return "error no item selected"
+
 if __name__ == '__main__':
   app.secret_key= '(nj32*H23i32h32bw39F(U&WBERHYBFR'
   app.run(host='0.0.0.0', port=5001,  debug=True)
