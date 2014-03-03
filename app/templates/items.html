@@ -82,7 +82,8 @@
 <script src-"{{url_for('static', filename='js/bootstrap.js')}}"></script>
 <script src="{{url_for('static', filename='js/items.js')}}"></script>
 <script>
-$('.myButton').click(function() {
+$('.myButton').click(function(e) {
+  e.preventDefault();
     ga("send", "event", "singleitem", "click");
 });
 </script>
