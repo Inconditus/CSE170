@@ -196,7 +196,7 @@ def buy_item(item_id=None):
 
 def bought_items(user_id):
 # get the user 
-  item_ids = Bought_Item.query.filter_by(user_id=user_id.all()
+  item_ids = Bought_Item.query.filter_by.user_id=user_id.all()
   item_dict = [] # list of item dictionaries
   for each in item_ids:
     item = Item.query.filter_by(id=each.item_id).first()
