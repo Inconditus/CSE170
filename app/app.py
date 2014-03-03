@@ -194,9 +194,7 @@ def buy_item(item_id=None):
   else:
     return "error no item selected"
 
-@app.route('/profile/bought')
-def bought_items():
-  user_id = session['user']
+def bought_items(user_id):
 # get the user 
   item_ids = Bought_Item.query.filter_by(user_id=user_id.all()
   item_dict = [] # list of item dictionaries
