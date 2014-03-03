@@ -124,6 +124,17 @@ def items():
   list_dicts = [item.__dict__ for item in listings]
   return render_template('items.html', listings=list_dicts)
 
+
+@app.route('/items-alt/')
+def items_alt():
+  if not is_logged_in(): return redirect('/', code=302)
+  print "yolo"
+  listings = Item.query.order_by(Item.id.desc()).all()
+# convert list of objects to list of dic
+  list_dicts = [item.__dict__ for item in listings]
+  return render_template('items-alt.html', listings=list_dicts)
+
+
 @app.route('/profile/')
 def profile():
   if not is_logged_in(): return redirect('/', code=302)

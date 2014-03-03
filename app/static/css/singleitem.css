@@ -88,9 +88,7 @@ body {
 }
 
 .myButton {
-  display: block;
-  width: 250px;
-  text-align center;
+	width: 250px;
 	margin-right: auto;
 	margin-left: auto;
 	background-color:#599bb3;
@@ -101,7 +99,7 @@ body {
 	color:#ffffff;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 18px;
-	padding: 13px 0;
+	padding: 13px 32px;
 	text-decoration:none;
 	text-align: center;
 }
