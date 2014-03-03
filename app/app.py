@@ -194,6 +194,17 @@ def buy_item(item_id=None):
   else:
     return "error no item selected"
 
+@app.route('/profile/bought')
+def bought_items():
+  user_id = session['user']
+# get the user 
+  item_ids = Bought_Item.query.filter_by(user_id=user_id.all()
+  item_dict = [] # list of item dictionaries
+  for each in item_ids:
+    item = Item.query.filter_by(id=each.item_id).first()
+    item_dict.append(item.__dict__)
+  return item_dict # should send to template or something
+
 if __name__ == '__main__':
   app.secret_key= '(nj32*H23i32h32bw39F(U&WBERHYBFR'
   app.run(host='0.0.0.0', port=5001,  debug=True)
