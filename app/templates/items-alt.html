@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Group buy</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="{{url_for('static', filename='css/items.css')}}">
+</head>
+<body>
+
+	<div class="stickyheader">
+		<div class="logo-background"></div>
+		<div class="logo">GroupBuy</div>
+		<ul class="categories">
+			<li class="active"><a href="#">Listings</a></li>
+			<!-- <li><a href="add.html">Add</a></li> -->
+			<li><a href="/profile/">My Profile</a></li>
+			<!-- <li><a href="manage.html">Manage</a></li> -->
+		</ul>
+	</div>
+
+<div>
+	<div>
+		<div class="stickyheader-margin">
+		<div class="content">
+			<!-- <div class="options"> -->
+				<div class="input-group">
+				<input id="search" type="text" class="form-control" placeholder="Search">
+				<span class="input-group-btn">
+					<button class="btn btn-default search" type="button"><span class="glyphicon glyphicon-search"></span></button>
+				</span>
+				</div>
+
+				<div class="input-group input-group-lg options">
+		  			<button class="btn btn-default add" data-toggle="modal" data-target="#add">Add <span class="glyphicon glyphicon-plus"></span></button>
+		  			<button class="btn btn-default manage" type="button">Manage <span class="glyphicon glyphicon-wrench"></span></button>
+				</div>
+
+			<!-- </div> -->
+      {% for item in listings %}
+      <div class="item">
+        <div class="name">{{item.name}}</div>
+        <div class="desc">{{item.description}}</div>
+        <span class="seller">Bob the Builder</span>
+        <img class="img-responsive" src="{{item.photo}}" />
+        <div class="itembar">
+          <div class="btn-itembar price">${{item.price}}</div>
+          <div class="btn-itembar origprice">${{item.origprice}}</div>
+          <div class="btn-itembar btn-buy"><a id="url" href="/singleitem/{{item.id}}">Details</a></div>
+        </div>
+      </div>
+      {% endfor %}
+			<br>
+		</div>
+		</div>
+	</div>
+</div>
+
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+<script src="{{url_for('static', filename='js/jquery.cookie.js')}}"></script>
+<script src-"{{url_for('static', filename='js/bootstrap.js')}}"></script>
+<script src="{{url_for('static', filename='js/items.js')}}"></script>
+
+</body>
+</html>
