@@ -1,41 +1,40 @@
-To-do list:
-  Frontend
-	- home page 
-		- fix max-width
-		- sign up animation into css3
-		- DONE Edward - android home screen not full
-		- Done Edward - link logo to nearby page
+- home page 
+  - DONE Edward - fix max-width
+  - sign up animation into css3
+  - DONE Edward - android home screen not full
+  - Done Edward - link logo to nearby page
 
-    DONE Theresa - Abstract out CSS
-    DONE Justin - Abstract out JS
-    DONE Justin - Login/Signup linked
-	DONE Edward - github private -> public
+  DONE Theresa - Abstract out CSS
+  DONE Justin - Abstract out JS
+  DONE Justin - Login/Signup linked
+DONE Edward - github private -> public
 
 
-	- items
-	DONE Justin - make header static z-index = 99999
-	DONE Theresa - buy now button - outline
-	DONE Edward	- Make pictures all the same size
+- items
+DONE Justin - make header static z-index = 99999
+DONE Theresa - buy now button - outline
+DONE Edward	- Make pictures all the same size
 
-	- single item
-		- button color match
-		- background outline
-		- show seller profile
-	- Add page
-		- page title
-		- button color
-	- Future work
-		- animation swipe right card = interested
-		- add https://github.com/maman/JVFloat.js to all boxes
-	- Search bar?
-  Backend
-  - Add foreign keys to item
-  - Create new table of purchases
-  - Upload image to imgur or local, return a link.
-  - Write tests for everything
-  - Add edit profile functionality
-Buy should do something
-Top bar should stay on android
-Refactor the methods to use the @staticmethod decorator.
+- single item
+  - button color match
+  - background outline
+  - show correct user name (do a join on the users table)
+  - implement buy button
+- Add page
+  - page title
+  - button color
+- Future work
+  - animation swipe right card = interested
+  - add https://github.com/maman/JVFloat.js to all boxes
+- Search bar?
+Backend
+- Add foreign keys to item
+- Create new table of purchases
+- Upload image to imgur or local, return a link.
+- Write tests for everything
+- Add edit profile functionality
+Misc
+- Buy should do something
+- Top bar should stay on android
 
 
