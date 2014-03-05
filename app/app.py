@@ -149,7 +149,10 @@ def add():
 
 @app.route('/manage/')
 def manage():
-  item_dict = bought_items(session['user'])
+  item_dict = bought_items(session['user']) # actually a list, derp
+  for key, value in enumerate(item_dict):
+    seller = get_user_by_id(item_dict[key]['user_id'])
+    item_dict[key]['username'] = seller.name 
   return render_template('manage.html', items=item_dict)
 
 # API Routings
