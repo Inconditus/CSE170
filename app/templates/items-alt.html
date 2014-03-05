@@ -75,7 +75,8 @@
         <div class="itembar">
           <div class="btn-itembar price">${{item.price}}</div>
           <div class="btn-itembar origprice">${{item.origprice}}</div>
-          <div class="btn-itembar btn-buy"><a id="url" class="myButton url" href="/singleitem/{{item.id}}">Details</a></div>
+          <div class="btn-itembar btn-buy"><a id="url" class="myButton url" href="/singleitem/{{item.id}}"
+          	onclick="trackOutboundLink('/singleitem/{{item.id}}'); return false;">Details</a></div>
         </div>
       </div>
       {% endfor %}
@@ -92,9 +93,17 @@
 <script src-"{{url_for('static', filename='js/bootstrap.js')}}"></script>
 <script src="{{url_for('static', filename='js/items.js')}}"></script>
 <script>
-$('.myButton').click(function() {
-  ga("send", "event", "singleitem", "click");
-});
+
+var trackOutboundLink = function(url) {
+   ga('send', 'event', 'singleitem', 'click', url, {'hitCallback':
+     function () {
+     document.location = url;
+     }
+   });
+}
+// $('.btn-buy').click(function() {
+//   ga("send", "event", "singleitem", "click");
+// });
 </script>
 
 <script>

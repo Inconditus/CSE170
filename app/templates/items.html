@@ -55,7 +55,7 @@
 
 			<!-- </div> -->
       {% for item in listings %}
-      <a class="myButton" href="/singleitem/{{item.id}}">
+      <a class="myButton" href="/singleitem/{{item.id}}" onclick="trackOutboundLink('/singleitem/{{item.id}}'); return false;">
         <div class="item">
           <div class="name">{{item.name}}</div>
           <div class="desc">{{item.description}}</div>
@@ -80,10 +80,17 @@
 <script src-"{{url_for('static', filename='js/bootstrap.js')}}"></script>
 <script src="{{url_for('static', filename='js/items.js')}}"></script>
 <script>
-$('.myButton').click(function(e) {
-    console.log("ga");
-    ga("send", "event", "singleitem", "click");
-});
+var trackOutboundLink = function(url) {
+   ga('send', 'event', 'singleitem', 'click', url, {'hitCallback':
+     function () {
+     document.location = url;
+     }
+   });
+}
+// $('.myButton').click(function(e) {
+//     console.log("ga");
+//     ga("send", "event", "singleitem", "click");
+// });
 </script>
 
 <script>
