@@ -118,6 +118,7 @@ body {
 
 .name {
   width: 300px;
+  outline: none;
   margin: 10px auto;
   text-align:center;
 	font-weight: 300;
