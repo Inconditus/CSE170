@@ -14,6 +14,7 @@ class User(db.Model):
     def __init__(self, username, password):
         self.username = username
         self.password = password 
+        self.name = "My Name"
 
     def __repr__(self):
         return '<User %r>' % self.username
