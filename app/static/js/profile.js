@@ -1,11 +1,4 @@
 $(document).ready( function() {
-			var JSONinfo = $.cookie("user") ;
-			var JSONobj = JSON.parse(JSONinfo);
-
-			$(".name").html(JSONobj.user);
-
-			console.log(JSONobj.user);
-
 			$('.reviewtab a').click(function (e) {
 				e.preventDefault()
 			  	$('#myTab a[href="#reviews"]').tab('show')
@@ -21,4 +14,19 @@ $(document).ready( function() {
 $(".logo").click( function() {
       document.location.href = '/items/';
 });
+var typingTimer;
+
+$('.name').keyup(function(){
+  console.log("keyup");
+  clearTimeout(typingTimer);
+  typingTimer = setTimeout(doneTyping, 1000);
+});
+
+function doneTyping() {
+  var name = $('.name').text()
+  $.post('/profile/change_name', { name: name })
+  .done(function() {
+    console.log("doneTyping sent to server");
+  });
+}
 

@@ -139,9 +139,10 @@ def items_alt():
 def profile():
   if not is_logged_in(): return redirect('/', code=302)
   user_id = session['user']
+  user = get_user_by_id(user_id)
   items = get_items_by_seller(user_id)
   items_dict = [item.__dict__ for item in items]
-  return render_template('profile.html', user_curr_list = items_dict)
+  return render_template('profile.html', user = user.__dict__, user_curr_list = items_dict)
 
 @app.route('/add/')
 def add():
@@ -207,6 +208,15 @@ def add_item():
   create_item(name, description, origprice, price, min_buyers, photo, session['user'])
 
   return jsonify({'result': 'success'})
+
+@app.route('/profile/change_name', methods=['POST'])
+def change_name():
+  if not is_logged_in():
+    return jsonify( {'error': 'Not logged in' } )
+  user = get_user_by_id(session['user'])
+  user.name = request.form['name']
+  db.session.commit()
+  return jsonify({'success': 'Changed name'})
 
 @app.route('/item/buy/<item_id>')
 def buy_item(item_id=None):
