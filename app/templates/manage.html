@@ -26,15 +26,14 @@
     {% for item in items %}
 		<div class="item">
 			<img class="img-responsive" src="{{item.image}}" />
-	        <div class="name">{{item.name}}</div>
-	        <br>
-	        <div class="desc">{{item.description}}</div>
-	        <br>
-        	<span class="seller">{{item.user_id}}</span>
-        	<br>
-			<div class="price">${{item.price}}</div>
+        <div class="name"><strong>Item: </strong>{{item.name}}</div>
+        <br>
+        <div class="desc"><strong>Description: <strong>{{item.description}}</div>
+        <br>
+        <span class="seller">{{item.user_id}}</span>
+        <br>
+			<div class="price"><strong>Price: </strong>${{item.price}}</div>
 			<br>
-			<div class="origprice">${{item.origprice}}</div>
 			<!-- <div class="details"><a href="/singleitem/{{id}}">Click for full listing</a></div> -->
     </div>
     <hr>
