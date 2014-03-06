@@ -25,16 +25,15 @@
 		<hr>
     {% for item in items %}
 		<div class="item">
-			<img class="img-responsive" src="https://24.media.tumblr.com/b2977986d23c10bc154a006701c96050/tumblr_n1fs71Bwcy1sg1hjoo1_500.jpg" />
-	        <div class="name">{{item.name}}</div>
-	        <br>
-	        <div class="desc">{{item.description}}</div>
-	        <br>
-        	<span class="seller">{{item.user_id}}</span>
-        	<br>
-			<div class="price">${{item.price}}</div>
+			<img class="img-responsive" src="{{item.image}}" />
+        <div class="name"><strong>Item: </strong>{{item.name}}</div>
+        <br>
+        <div class="desc"><strong>Description: </strong>{{item.description}}</div>
+        <br>
+        <span class="seller"><strong>Seller: </strong>{{seller}}</span>
+        <br>
+			<div class="price"><strong>Price: </strong>${{item.price}}</div>
 			<br>
-			<div class="origprice">${{originalprice}}</div>
 			<!-- <div class="details"><a href="/singleitem/{{id}}">Click for full listing</a></div> -->
     </div>
     <hr>

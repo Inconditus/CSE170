@@ -14,6 +14,7 @@ class User(db.Model):
     def __init__(self, username, password):
         self.username = username
         self.password = password 
+        self.name = "My Name"
 
     def __repr__(self):
         return '<User %r>' % self.username
@@ -139,9 +140,10 @@ def items_alt():
 def profile():
   if not is_logged_in(): return redirect('/', code=302)
   user_id = session['user']
+  user = get_user_by_id(user_id)
   items = get_items_by_seller(user_id)
   items_dict = [item.__dict__ for item in items]
-  return render_template('profile.html', user_curr_list = items_dict)
+  return render_template('profile.html', user = user.__dict__, user_curr_list = items_dict)
 
 @app.route('/add/')
 def add():
@@ -149,7 +151,10 @@ def add():
 
 @app.route('/manage/')
 def manage():
-  item_dict = bought_items(session['user'])
+  item_dict = bought_items(session['user']) # actually a list, derp
+  for key, value in enumerate(item_dict):
+    seller = get_user_by_id(item_dict[key]['user_id'])
+    item_dict[key]['username'] = seller.name 
   return render_template('manage.html', items=item_dict)
 
 # API Routings
@@ -205,6 +210,15 @@ def add_item():
 
   return jsonify({'result': 'success'})
 
+@app.route('/profile/change_name', methods=['POST'])
+def change_name():
+  if not is_logged_in():
+    return jsonify( {'error': 'Not logged in' } )
+  user = get_user_by_id(session['user'])
+  user.name = request.form['name']
+  db.session.commit()
+  return jsonify({'success': 'Changed name'})
+
 @app.route('/item/buy/<item_id>')
 def buy_item(item_id=None):
   if item_id:
@@ -218,5 +232,5 @@ def buy_item(item_id=None):
 
 if __name__ == '__main__':
   app.secret_key= '(nj32*H23i32h32bw39F(U&WBERHYBFR'
-  app.run(host='0.0.0.0', port=5001,  debug=True)
+  app.run(host='0.0.0.0', port=80,  debug=True)
 
