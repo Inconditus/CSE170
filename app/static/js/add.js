@@ -75,7 +75,7 @@ function submit() {
           date.setTime(date.getTime() + (5 * 60 * 1000));
           $.post('/item/add', JSONinfo).done(function(data) {
               //maybe do something with the data to see if submit worked
-              //window.location.href = "/items/";
+              window.location.href = "/items/";
               });
           //$.cookie("newitem", JSON.stringify(JSONinfo), { expires: date } );
         }
