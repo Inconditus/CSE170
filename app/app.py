@@ -112,7 +112,11 @@ def default():
 def single_item(name=None):
   if name:
     item = get_item_by_id(name)
-    return render_template('singleitem.html', item=item.__dict__)
+    seller = get_user_by_id(item.user_id)
+    sellername = seller.name 
+    item_dict = item.__dict__
+    item_dict['seller'] = sellername
+    return render_template('singleitem.html',  item = item_dict)
   else:
     return "error"
 
