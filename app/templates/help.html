@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Group buy</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="{{url_for('static', filename='css/help.css')}}">
+</head>
+<body>
+	<div class="stickyheader">
+		<div class="logo-background"></div>
+		<div class="logo">GroupBuy</div>
+		<ul class="categories">
+			<li><a href="/items/">Listings</a></li>
+			<!-- <li class="active"><a href="#">Add</a></li> -->
+			<li><a href="/profile/">My Profile</a></li>
+			<li class="active"><a href="/help/">Help</a></li>
+			<!-- <li><a href="manage.html">Manage</a></li> -->
+		</ul>
+	</div>
+	<div class="content">
+		<h3 class="title">Quick Tips</h3>
+		<p class="section">
+			Here are some short directions to help you navigate around this site!
+		</p>
+		<p class="section">
+			<b>To add an item: </b> Go to "Listings" from the top nav bar, and click the "Add" button under the search bar. You'll need an image link but the filling out the rest is straightforward. It will prevent you from submitting if there are input errors.
+		</p>
+		<p class="section">
+			<b>To view an item: </b> Go to "Listings" from the top nav bar, and click anywhere on the item listing to view additional information.
+		</p>
+		<p class="section">
+			<b>To buy a item: </b> On the details page, click the Buy button. If you want to see your already bought items, go to the "Listings" page and then click the "Manage" button under the search bar to see a list.
+		</p>
+		<p class="section">
+			<b>To change your profile name: </b> Go to "My Profile" from the top nav bar, and click on your name to start editing the field. 
+		</p>
+		<p class="section">
+			<b>To search for an item: </b> Go to "Listings" from the top nav bar, and start typing in the search bar at the top of the page. Results should automatically filter (only by the item name).
+		</p>
+	</div>
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
+		<script src="{{url_for('static', filename='js/bootstrap.js')}}"></script>
+		<script src="{{url_for('static', filename='js/add.js')}}"></script>
+	</body>
+	</html>

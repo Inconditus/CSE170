@@ -49,36 +49,48 @@ function submit() {
 
         if( isNaN(origprice) || isNaN(price) || isNaN(minnum) )
         {
-          alert("Please enter only numbers for the prices and minimum amount of buyers.");
+          alert("Please enter only numbers for the prices and minimum amount of buyers (don't include the $ in prices!");
         }
         else
+
+        if ( origprice <= price )
         {
-          var origdec = parseFloat(origprice);
-          origprice = +origdec.toFixed(2);
-
-          var pricedec = parseFloat(price);
-          price = +pricedec.toFixed(2);
-
-          console.log("yay accepted");
-          var JSONinfo = {}
-
-          JSONinfo["check"] = check;
-          JSONinfo["name"] = name;
-          JSONinfo["desc"] = desc;
-          JSONinfo["origprice"] = origprice;
-          JSONinfo["price"] = price;
-          JSONinfo["imgsrc"] = imgsrc;
-          JSONinfo["minnum"] = minnum;
-          JSONinfo["seller"] = "Edward T. Hung";
-
-          var date = new Date();
-          date.setTime(date.getTime() + (5 * 60 * 1000));
-          $.post('/item/add', JSONinfo).done(function(data) {
-              //maybe do something with the data to see if submit worked
-              window.location.href = "/items/";
-              });
-          //$.cookie("newitem", JSON.stringify(JSONinfo), { expires: date } );
+          alert("Your bulk price has to be less than the original price!");
         }
+        else
+
+          if( (origprice > 500) || (price > 500 ) )
+          {
+            alert("Sorry, we do not allow the selling/buying of items that cost more than 500.");
+          }
+          else
+          {
+            var origdec = parseFloat(origprice);
+            origprice = +origdec.toFixed(2);
+
+            var pricedec = parseFloat(price);
+            price = +pricedec.toFixed(2);
+
+            console.log("yay accepted");
+            var JSONinfo = {}
+
+            JSONinfo["check"] = check;
+            JSONinfo["name"] = name;
+            JSONinfo["desc"] = desc;
+            JSONinfo["origprice"] = origprice;
+            JSONinfo["price"] = price;
+            JSONinfo["imgsrc"] = imgsrc;
+            JSONinfo["minnum"] = minnum;
+            JSONinfo["seller"] = "Edward T. Hung";
+
+            var date = new Date();
+            date.setTime(date.getTime() + (5 * 60 * 1000));
+            $.post('/item/add', JSONinfo).done(function(data) {
+                //maybe do something with the data to see if submit worked
+                window.location.href = "/items/";
+                });
+            //$.cookie("newitem", JSON.stringify(JSONinfo), { expires: date } );
+          }
 
   }
   //alert( $.cookie("listinginfo") );

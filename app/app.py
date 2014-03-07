@@ -153,6 +153,11 @@ def profile():
 def add():
   return render_template('add.html')
 
+@app.route('/help/')
+def help():
+  if not is_logged_in(): return redirect('/', code=302)
+  return render_template('help.html')
+
 @app.route('/manage/')
 def manage():
   item_dict = bought_items(session['user']) # actually a list, derp
