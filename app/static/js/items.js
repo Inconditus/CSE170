@@ -20,7 +20,7 @@ $(document).ready(function(){
 	    $(".item").each(function(){
 
 	       // If not contain, fade out
-	       var item = $(this).children(".name").html().toLowerCase();
+	       var item = $(this).find(".name").html().toLowerCase();
 			if( item.indexOf(searchterm) < 0 )
 				$(this).fadeOut();
 	        else {
